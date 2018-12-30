@@ -116,21 +116,170 @@ class FormController extends Controller
         $pdf->SetFont('stsongstdlight', '', 10, false);
 
         // 需要转换成 pdf 的 html 页面
-        $page = view('form.pdf2');
+        $list = [
+            [
+                'code'     => '123',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '124',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '125',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+            [
+                'code'     => '126',
+                'userName' => '小李',
+                'cardId'   => '450103022904059281',
+            ],
+
+        ];
+
+        $users = collect($list)->chunk(2);
+        $page = view('form.pdf3', compact('users'));
+//        $page = view('form.pdf3');
         $html = response($page)->getContent();
 
         //第一页
-        $pdf->AddPage();
-         $pdf->writeHTML($html);
+        $pdf->AddPage(1);
+        $pdf->writeHTML($html);
         // $pdf->writeHTML('<div>您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码39377288fefd40a5a56d5d6317302a5e</div>');
 
+        $pdf->Image(public_path() . '/pdf/h.png', 10, 5, '', 5, '', '', '', false, 100);
+        $pdf->Image(public_path() . '/pdf/img_01.png', 10, 5, 20, 20, '', '', '', false, 100);
+        $pdf->Image(public_path() . '/pdf/img_02.png', 150, 15, 42, 42, '', '', '', false, 100);
 
         //第二页
         // $pdf->AddPage();
         // $pdf->writeHTML('<h1>第二页内容</h1>');
 
         //输出PDF
-        $pdf->Output('t.pdf', 'I');//I输出、D下载
+        $pdf->Output('renshe.pdf', 'I'); // I输出、D下载
         // return view('form.pdf');
     }
 }
