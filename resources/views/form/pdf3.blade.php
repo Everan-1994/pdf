@@ -15,26 +15,12 @@
             padding: 0;
             margin: 0;
         }
-
-        .container {
-            width: 600px;
-            box-sizing: border-box;
-            padding: 38px;
-            margin: 0 auto;
-        }
-
-        .div1 {
-            width: 500px;
-            height: 50px;
-        }
-
         header {
             width: 500px;
             margin: 0 auto;
             padding-top: 20px;
             position: relative;
         }
-
         header h2 {
             width: 500px;
             font-size: 14px;
@@ -42,25 +28,19 @@
             text-align: center;
             margin: 0 auto;
         }
-
         .table1 {
-            width: 500px;
             margin: 0 auto;
             font-size: 10px;
             padding: 5px;
         }
-
         .table2 {
-            width: 500px;
             margin: 0 auto;
             font-size: 10px;
             vertical-align: middle;
             text-align: center;
             border-collapse: collapse;
         }
-
         .table3 {
-            width: 500px;
             margin: 0 auto;
             font-size: 12px;
             padding-top: 10px;
@@ -70,10 +50,8 @@
 
 <body>
 <!-- 顶部连接 -->
-<div class="container">
-    <div class="div1">
-
-    </div>
+<div>
+    <div></div>
     <header>
         <h2>
             附件：南宁市社会保险参保缴费证明-正常应缴人员名单（单位专用）
@@ -88,7 +66,7 @@
         </tr>
         <tr>
             <td>2018年11月</td>
-            <td>参保人数(共28人，其中正常应缴28人)</td>
+            <td>参保人数(共{{ $count }}人，其中正常应缴{{ $count }}人)</td>
         </tr>
         </tbody>
     </table>
@@ -106,10 +84,10 @@
         @foreach ($users as $key => $user)
             <tr>
                 @foreach($user as $j => $v)
-                    <td>{{ $j + 1 }}</td>
-                    <td>{{ $v['code'] }}</td>
-                    <td>{{ $v['userName'] }}</td>
-                    <td>{{ $v['cardId'] }}</td>
+                    <td>{{ $number + $j + 1 }}</td>
+                    <td>{{ $v['number'] }}</td>
+                    <td>{{ $v['name'] }}</td>
+                    <td>{{ $v['id_card'] }}</td>
                 @endforeach
             </tr>
         @endforeach
@@ -126,7 +104,7 @@
         <tr>
             <td width="65%"></td>
             <td width="35%">
-                打印时间： 2018-12-20
+                打印时间： {{ $date }}
             </td>
         </tr>
         </tbody>
