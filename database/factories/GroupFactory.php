@@ -16,6 +16,6 @@ use Faker\Generator as Faker;
 $factory->define(App\Group::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'publish' => \Carbon\Carbon::now()->toDateTimeString()
+        'publish' => \Carbon\Carbon::now()->toDateString()
     ];
 });

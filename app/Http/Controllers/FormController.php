@@ -94,12 +94,12 @@ class FormController extends Controller
         );
         // $pdf->setFooterData([0, 64, 0], [0, 64, 128]);
         // 设置页眉和页脚字体
-        $pdf->setHeaderFont(['stsongstdlight', '', 7]);
+        $pdf->setHeaderFont(['tcpdffont', '', 6]);
         // $pdf->setFooterFont(['helvetica', '', '8']);
         // $pdf->setPrintHeader(false); //设置打印页眉
         // $pdf->setPrintFooter(false); //设置打印页脚
         // 设置默认等宽字体
-        $pdf->SetDefaultMonospacedFont('courier');
+        // $pdf->SetDefaultMonospacedFont('courier');
         // 设置间距
         // $pdf->SetMargins(15, 15, 15);//页面间隔
         $pdf->SetHeaderMargin(1);//页眉top间隔
@@ -110,7 +110,10 @@ class FormController extends Controller
         // set default font subsetting mode
         $pdf->setFontSubsetting(true);
         //设置字体 stsongstdlight支持中文
-        $pdf->SetFont('stsongstdlight', '', 10, false);
+        $pdf->SetFont('tcpdffont', '', 10, false);
+        // $pdf->SetMargins(30, 0, 30);//左、上、右
+        // $pdf->SetAutoPageBreak(TRUE, 15);//下
+//         $pdf->setCellPaddings(1, 1, 1, 0);
 
         // 数据
         $list = Group::query()
@@ -118,13 +121,20 @@ class FormController extends Controller
                 return $query->where('id', $request->input('group_id'));
             })
             ->get();
+
+        // 用户总数
+        $count_member = 0;
+        foreach ($list as $key => $collect) {
+            $count_member += count($collect->members);
+        }
+
         $number = 0;
         foreach ($list as $key => $collect) {
             if ($collect->members->isNotEmpty()) {
                 $users = $collect->members->chunk(2);
                 $count = count($collect->members);
-                $date = $collect->publish->toDateTimeString();
-                $page = view('form.pdf3', compact(['users', 'count', 'date', 'number']));
+                $date = $collect->publish->toDateString();
+                $page = view('form.pdf3', compact(['users', 'count_member', 'date', 'number']));
                 $html = response($page)->getContent();
 
                 $number += $count; // 下一个循环开始位置
@@ -147,7 +157,7 @@ class FormController extends Controller
 
                 $pdf->Image(public_path() . '/pdf/h.png', 10, 5, '', 20, '', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/renshe_' . $key . '.png', 10, 5, 20, 20, '', '', '', false, 100);
-                $pdf->Image(public_path() . '/pdf/img_02.png', 150, 15, 42, 42, '', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, '', '', '', false, 100);
 
                 unset($users);
                 unset($page);
@@ -156,10 +166,8 @@ class FormController extends Controller
             }
         }
 
+        // $pdf->SetMargins(10, 10, 10, true);
 
-        //第二页
-        // $pdf->AddPage();
-        // $pdf->writeHTML('<h1>第二页内容</h1>');
         // 输出PDF
         $pdf->Output('renshe.pdf', 'I'); // I输出、D下载
         // return view('form.pdf');

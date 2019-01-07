@@ -10,104 +10,101 @@
 
     <title>人社表单验证</title>
     <style>
-        body,
-        p {
-            padding: 0;
-            margin: 0;
-        }
-        header {
-            width: 500px;
-            margin: 0 auto;
-            padding-top: 20px;
-            position: relative;
-        }
-        header h2 {
-            width: 500px;
-            font-size: 14px;
-            color: #000;
-            text-align: center;
-            margin: 0 auto;
-        }
         .table1 {
-            margin: 0 auto;
             font-size: 10px;
             padding: 5px;
         }
         .table2 {
-            margin: 0 auto;
-            font-size: 10px;
+            font-size: 9px;
             vertical-align: middle;
             text-align: center;
-            border-collapse: collapse;
-        }
-        .table3 {
-            margin: 0 auto;
-            font-size: 12px;
-            padding-top: 10px;
         }
     </style>
 </head>
 
 <body>
 <!-- 顶部连接 -->
-<div>
+<div >
     <div></div>
-    <header>
-        <h2>
-            附件：南宁市社会保险参保缴费证明-正常应缴人员名单（单位专用）
-        </h2>
-    </header>
+    <table>
+        <tr>
+            <td width="8%"></td>
+            <td width="83%">
+                <h2>
+                    附件：南宁市社会保险参保缴费证明-正常应缴人员名单（单位专用）
+                </h2>
+            </td>
+            <td width="5%"></td>
+        </tr>
+    </table>
     <!-- 表格 -->
     <table class="table1">
         <tbody>
         <tr>
-            <td>单位名称： 广西振鸿宇水电建筑有限责任公司</td>
-            <td>校验码：2000023081240502</td>
+            <td width="10%"></td>
+            <td width="43%">单位名称： 广西振鸿宇水电建筑有限责任公司</td>
+            <td width="38%">校验码：2000023081240502</td>
         </tr>
         <tr>
-            <td>2018年11月</td>
-            <td>参保人数(共{{ $count }}人，其中正常应缴{{ $count }}人)</td>
+            <td width="10%"></td>
+            <td width="43%">2018年11月</td>
+            <td width="38%">参保人数(共{{ $count_member }}人，其中正常应缴{{ $count_member }}人)</td>
         </tr>
         </tbody>
     </table>
-    <table class="table2" border="1">
+    <table>
         <tr>
-            <th width="8%">序号</th>
-            <th width="14%">个人编号</th>
-            <th width="11%">姓名</th>
-            <th width="17%">身份证号</th>
-            <th width="8%">序号</th>
-            <th width="14%">个人编号</th>
-            <th width="11%">姓名</th>
-            <th width="17%">身份证号</th>
-        </tr>
-        @foreach ($users as $key => $user)
-            <tr>
-                @foreach($user as $j => $v)
-                    <td>{{ $number + $j + 1 }}</td>
-                    <td>{{ $v['number'] }}</td>
-                    <td>{{ $v['name'] }}</td>
-                    <td>{{ $v['id_card'] }}</td>
-                @endforeach
-            </tr>
-        @endforeach
+            <td width="9%"></td>
+            <td width="80%">
+                <table class="table2" border="1">
+                    <tr>
+                        <th width="5%">序号</th>
+                        <th width="9%">个人编号</th>
+                        <th width="17%">姓名</th>
+                        <th width="19%">身份证号</th>
+                        <th width="5%">序号</th>
+                        <th width="9%">个人编号</th>
+                        <th width="17%">姓名</th>
+                        <th width="19%">身份证号</th>
+                    </tr>
+                    @foreach ($users as $key => $user)
+                        <tr>
+                            @foreach($user as $j => $v)
+                                <td>{{ $number + $j + 1 }}</td>
+                                <td>{{ $v['number'] }}</td>
+                                <td>{{ $v['name'] }}</td>
+                                <td>{{ $v['id_card'] }}</td>
+                            @endforeach
+                        </tr>
+                    @endforeach
 
-    </table>
-    <table class="table3">
-        <tbody>
-        <tr>
-            <td width="65%"></td>
-            <td width="35%">
-                南宁市社会保险事业局（章）
+                </table>
             </td>
+            <td width="10%"></td>
         </tr>
         <tr>
-            <td width="65%"></td>
-            <td width="35%">
-                打印时间： {{ $date }}
-            </td>
+            <td></td>
         </tr>
-        </tbody>
+        <tr>
+            <td width="10%"></td>
+            <td width="80%">
+                <table>
+                    <tr>
+                        <td width="55%"></td>
+                        <td width="45%">
+                            南宁市社会保险事业局（章）
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="55%"></td>
+                        <td width="45%">
+                            打印时间： {{ $date }}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="10%"></td>
+        </tr>
     </table>
 </div>
 </body>

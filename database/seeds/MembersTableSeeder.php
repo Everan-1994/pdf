@@ -14,20 +14,20 @@ class MembersTableSeeder extends Seeder
         $group_ids = \App\Group::all()->pluck('id')->toArray();
 
         $members = factory(\App\Member::class)
-            ->times(130)
+            ->times(50)
             ->make()
             ->each(function ($member, $index)
             use ($group_ids)
             {
-                if ($index < 50) {
+                if ($index < 48) {
                     $member->group_id = $group_ids[0];
                 }
 
-                if ($index >= 50 && $index < 100) {
+                if ($index >= 48 && $index < 96) {
                     $member->group_id = $group_ids[1];
                 }
 
-                if ($index >= 100) {
+                if ($index >= 96) {
                     $member->group_id = $group_ids[2];
                 }
 
