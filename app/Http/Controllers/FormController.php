@@ -145,7 +145,7 @@ class FormController extends Controller
                     '../public/pdf/renshe_' . $key . '.png'
                 );
 
-                $pdf->Image(public_path() . '/pdf/h.png', 10, 5, '', 5, '', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/h.png', 10, 5, '', 20, '', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/renshe_' . $key . '.png', 10, 5, 20, 20, '', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/img_02.png', 150, 15, 42, 42, '', '', '', false, 100);
 
