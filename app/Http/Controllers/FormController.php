@@ -105,10 +105,17 @@ class FormController extends Controller
         $pdf->SetHeaderMargin(1);//页眉top间隔
         // $pdf->SetFooterMargin(10);//页脚bottom间隔
 
+        // remove default header/footer
+        // $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        // set default monospaced font
+        // set image scale factor
+
         // 设置分页
         // $pdf->SetAutoPageBreak(true, 25);
         // set default font subsetting mode
-        $pdf->setFontSubsetting(true);
+        // $pdf->setFontSubsetting(true);
         //设置字体 stsongstdlight支持中文
         $pdf->SetFont('stsongstdlight', '', 12, false);
         // $pdf->SetMargins(30, 0, 30);//左、上、右
@@ -154,7 +161,7 @@ class FormController extends Controller
                     '../public/pdf/renshe_' . $key . '.png'
                 );
 
-                $pdf->Image(public_path() . '/pdf/h.png', 10, 5, '', 20, '', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/h3.png', 10, 5, '', 10, '', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/renshe_' . $key . '.png', 10, 5, 20, 20, '', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, '', '', '', false, 100);
 
@@ -170,7 +177,7 @@ class FormController extends Controller
         $pdf->setCellPaddings(1, 1, 1, 1);
 
         // 输出PDF
-        $pdf->Output('renshe.pdf', 'I'); // I输出、D下载
+        $pdf->Output($request->input('code', '39377288fefd40a5a56d5d6317302a5e').'.pdf', 'I'); // I输出、D下载
         // return view('form.pdf');
     }
 

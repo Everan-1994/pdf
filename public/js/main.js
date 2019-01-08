@@ -110,7 +110,7 @@ function showPdf(e) {
 	document.getElementById("container");
 	container.style.display = "block";
 	var t = convertDataURIToBinary(e);
-	PDFJS.workerSrc = "../app/scripts/pdf.worker.js", PDFJS.getDocument(t).then(function(e) {
+	PDFJS.workerSrc = "./pdf.worker.js", PDFJS.getDocument(t).then(function(e) {
 		var t = (document.getElementById("pop"), e.numPages),
 			n = function(o) {
 				e.getPage(o).then(function(e) {
