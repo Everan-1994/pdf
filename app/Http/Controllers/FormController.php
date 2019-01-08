@@ -166,8 +166,8 @@ class FormController extends Controller
 //                // The '@' character is used to indicate that follows an image data stream and not an image file name
 //                $pdf->Image('@'.$imgdata);
 
-                $pdf->Image(public_path() . '/pdf/h3.png', 10, 5, 200, 10, 'PNG', '', '', false, 100);
-                $pdf->Image('https://csstools.chinaz.com/tools/images/public/logos/logo-index.png', 10, 5, 20, 20, 'PNG', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/renshe.png', 10, 5, 20, 20, 'PNG', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, 'PNG', '', '', false, 100);
 
                 unset($users);
