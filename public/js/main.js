@@ -20,11 +20,10 @@ function closeDialog() {
 	document.getElementById("haha").style.display = "none", document.getElementById("hehe").style.display = "none"
 }
 function submintCode() {
-	var tp = osType();
 	var e = document.getElementById("verificationValue").value,
 		t = document.getElementById("captchaValue").value,
 		o = "api/verify?signNumber=" + e + "&captcha=" + t,
-		i = "api/verify/getFileWebServerUrl?signNumber=" + e + '&tp=' + tp;
+		i = "api/verify/getFileWebServerUrl?signNumber=" + e;
 	"" === e || "" === t ? "" === e && "" != t ? alert("请输入验证号码。") : "" != e && "" === t ? alert("请输入验证码。") : alert("请输入查询信息。") : $http(o, "post", !1, 3e3, function(e) {
 		var t = JSON.parse(e).url;
 		t === !0 && window.open(i), getCaptcha()

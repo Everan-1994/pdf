@@ -94,7 +94,7 @@ class FormController extends Controller
         );
         // $pdf->setFooterData([0, 64, 0], [0, 64, 128]);
         // 设置页眉和页脚字体
-        $pdf->setHeaderFont(['stsongstdlight', '', 7]);
+        $pdf->setHeaderFont(['heiti', '', 6]);
         // $pdf->setFooterFont(['helvetica', '', '8']);
         // $pdf->setPrintHeader(false); //设置打印页眉
         // $pdf->setPrintFooter(false); //设置打印页脚
@@ -117,7 +117,7 @@ class FormController extends Controller
         // set default font subsetting mode
         // $pdf->setFontSubsetting(true);
         //设置字体 stsongstdlight支持中文
-        $pdf->SetFont('stsongstdlight', '', 12, false);
+        $pdf->SetFont('heiti', '', 12, false);
         // $pdf->SetMargins(30, 0, 30);//左、上、右
         // $pdf->SetAutoPageBreak(TRUE, 15);//下
 
@@ -134,8 +134,10 @@ class FormController extends Controller
             $count_member += count($collect->members);
         }
 
+        $param = $request->input('code', '39377288fefd40a5a56d5d6317302a5e');
+
         $qrCode->format('png')->margin(0)->size(260)->generate(
-            $url = env('APP_URL') . $_SERVER['REQUEST_URI'],
+            $url = env('APP_URL') . '/form?code=' . $param,
             '../public/pdf/renshe.png'
         );
 
@@ -161,13 +163,8 @@ class FormController extends Controller
 //                    $url = env('APP_URL') . $_SERVER['REQUEST_URI'] . '&group_id=' . $collect->id;
 //                }
 
-
-//                $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
-//                // The '@' character is used to indicate that follows an image data stream and not an image file name
-//                $pdf->Image('@'.$imgdata);
-
                 $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
-                $pdf->Image(public_path() . '/pdf/renshe.png', 10, 5, 20, 20, 'PNG', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/renshe.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, 'PNG', '', '', false, 100);
 
                 unset($users);
@@ -181,8 +178,7 @@ class FormController extends Controller
         $pdf->setCellPaddings(1, 1, 1, 1);
 
         // 输出PD
-        $pdf->Output($request->input('code', '39377288fefd40a5a56d5d6317302a5e').'.pdf',
-            $request->input('tp') == 'android' ? 'D' : 'I' ); // I输出、D下载
+        $pdf->Output($param .'.pdf', 'I' ); // I输出、D下载
         // return view('form.pdf');
     }
 

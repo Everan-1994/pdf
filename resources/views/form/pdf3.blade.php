@@ -39,7 +39,7 @@
     <p></p>
     <table class="table">
         <tr>
-            <td width="5%"></td>
+            <td width="2%"></td>
             <td width="90%" style="text-align: center">
                 附件：南宁市社会保险参保缴费证明-正常应缴人员名单（单位专<br/>用）
             </td>
@@ -67,13 +67,13 @@
                 <table class="table2" border="1">
                     <tr style="line-height: 1.6;">
                         <th width="5%">序号</th>
-                        <th width="10%">个人编号</th>
-                        <th width="18%">姓名</th>
-                        <th width="17%">身份证号</th>
+                        <th width="11%">个人编号</th>
+                        <th width="12%">姓名</th>
+                        <th width="22%">身份证号</th>
                         <th width="5%">序号</th>
-                        <th width="10%">个人编号</th>
-                        <th width="18%">姓名</th>
-                        <th width="17%">身份证号</th>
+                        <th width="11%">个人编号</th>
+                        <th width="12%">姓名</th>
+                        <th width="22%">身份证号</th>
                     </tr>
                     @foreach ($users as $key => $user)
                         <tr>
@@ -81,7 +81,7 @@
                                 <td>{{ $number + $j + 1 }}</td>
                                 <td>{{ $v['number'] }}</td>
                                 <td>{{ $v['name'] }}</td>
-                                <td style="line-height: 1.2; font-size: 9px;">{{ $v['id_card'] }}</td>
+                                <td style="line-height: 1.2; font-size: 9px;"> {{ $v['id_card'] }} </td>
                             @endforeach
                         </tr>
                     @endforeach
