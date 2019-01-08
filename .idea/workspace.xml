@@ -94,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/database/factories/MemberFactory.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -509,12 +509,12 @@
       <workItem from="1546749661968" duration="24425000" />
       <workItem from="1546827572109" duration="672000" />
       <workItem from="1546857114262" duration="13286000" />
-      <workItem from="1546909114430" duration="9237000" />
+      <workItem from="1546909114430" duration="9290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98140000" />
+    <option name="totallyTimeSpent" value="98193000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -878,7 +878,7 @@
     <entry file="file://$PROJECT_DIR$/database/factories/MemberFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
         </state>
       </provider>
     </entry>
