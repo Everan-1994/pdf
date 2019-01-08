@@ -113,7 +113,6 @@ class FormController extends Controller
         $pdf->SetFont('stsongstdlight', '', 12, false);
         // $pdf->SetMargins(30, 0, 30);//左、上、右
         // $pdf->SetAutoPageBreak(TRUE, 15);//下
-        // $pdf->setCellPaddings(10, 0, 5, 0);
 
         // 数据
         $list = Group::query()
@@ -167,6 +166,8 @@ class FormController extends Controller
         }
 
         // $pdf->SetMargins(10, 10, 10, true);
+
+        $pdf->setCellPaddings(1, 1, 1, 1);
 
         // 输出PDF
         $pdf->Output('renshe.pdf', 'I'); // I输出、D下载

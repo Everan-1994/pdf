@@ -81,7 +81,7 @@
                                 <td>{{ $number + $j + 1 }}</td>
                                 <td>{{ $v['number'] }}</td>
                                 <td>{{ $v['name'] }}</td>
-                                <td style="line-height: 1.2; font-size: 9px;">{{ $v['id_card'] }}</td>
+                                <td style="line-height: 1.1; font-size: 9px;">{{ $v['id_card'] }}</td>
                             @endforeach
                         </tr>
                     @endforeach
