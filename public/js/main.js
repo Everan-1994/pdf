@@ -135,7 +135,7 @@ function go() {
 }
 function goto(e) {
 	var t = atob(e);
-	PDFJS.workerSrc = "//mozilla.github.io/pdf.js/build/pdf.worker.js";
+	PDFJS.workerSrc = "./pdf.worker.js";
 	var n = PDFJS.getDocument({
 		data: t
 	});

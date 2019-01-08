@@ -12,9 +12,10 @@
             border: 1px solid black;
         }
     </style>
-    <script src="https://unpkg.com/pdfjs-dist@1.9.426/build/pdf.min.js"></script>
+    <script src="{{ asset('js/pdf.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
 </head>
 <body>
+<div id="the-canvas"></div>
 </body>
 </html>
