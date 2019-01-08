@@ -162,10 +162,13 @@ class FormController extends Controller
 //                }
 
 
+//                $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
+//                // The '@' character is used to indicate that follows an image data stream and not an image file name
+//                $pdf->Image('@'.$imgdata);
 
-                $pdf->Image(public_path() . '/pdf/h3.png', 10, 5, '', 10, '', '', '', false, 100);
-                $pdf->Image(public_path() . '/pdf/renshe.png', 10, 5, 20, 20, '', '', '', false, 100);
-                $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, '', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/h3.png', 10, 5, 200, 10, 'PNG', '', '', false, 100);
+                $pdf->Image('https://csstools.chinaz.com/tools/images/public/logos/logo-index.png', 10, 5, 20, 20, 'PNG', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, 'PNG', '', '', false, 100);
 
                 unset($users);
                 unset($page);
