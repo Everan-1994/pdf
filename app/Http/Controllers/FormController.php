@@ -134,6 +134,11 @@ class FormController extends Controller
             $count_member += count($collect->members);
         }
 
+        $qrCode->format('png')->margin(0)->size(260)->generate(
+            $url = env('APP_URL') . $_SERVER['REQUEST_URI'],
+            '../public/pdf/renshe.png'
+        );
+
         $number = 0;
         foreach ($list as $key => $collect) {
             if ($collect->members->isNotEmpty()) {
@@ -150,25 +155,21 @@ class FormController extends Controller
                 $pdf->writeHTML($html);
 
                 // 生成二维码
-                if ($request->filled('group_id')) {
-                    $url = env('APP_URL') . $_SERVER['REQUEST_URI'];
-                } else {
-                    $url = env('APP_URL') . $_SERVER['REQUEST_URI'] . '&group_id=' . $collect->id;
-                }
+//                if ($request->filled('group_id')) {
+//                    $url = env('APP_URL') . $_SERVER['REQUEST_URI'];
+//                } else {
+//                    $url = env('APP_URL') . $_SERVER['REQUEST_URI'] . '&group_id=' . $collect->id;
+//                }
 
-                $qc = $qrCode->format('png')->margin(0)->size(260)->generate(
-                    $url,
-                    '../public/pdf/renshe_' . $key . '.png'
-                );
 
-                $pdf->Image(public_path() . '/pdf/h1.png', 10, 5, '', 10, '', '', '', false, 100);
-                $pdf->Image(public_path() . '/pdf/renshe_' . $key . '.png', 10, 5, 20, 20, '', '', '', false, 100);
+
+                $pdf->Image(public_path() . '/pdf/h3.png', 10, 5, '', 10, '', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/renshe.png', 10, 5, 20, 20, '', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, '', '', '', false, 100);
 
                 unset($users);
                 unset($page);
                 unset($html);
-                unset($qc);
             }
         }
 
@@ -176,8 +177,9 @@ class FormController extends Controller
 
         $pdf->setCellPaddings(1, 1, 1, 1);
 
-        // 输出PDF
-        $pdf->Output($request->input('code', '39377288fefd40a5a56d5d6317302a5e').'.pdf', 'I'); // I输出、D下载
+        // 输出PD
+        $pdf->Output($request->input('code', '39377288fefd40a5a56d5d6317302a5e').'.pdf',
+            $request->input('tp') == 'android' ? 'D' : 'I' ); // I输出、D下载
         // return view('form.pdf');
     }
 
