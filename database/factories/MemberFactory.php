@@ -18,6 +18,6 @@ $factory->define(App\Member::class, function () {
     return [
         'name' => $faker->name,
         'number' => str_pad(mt_rand(0, 999999), 8, "0", STR_PAD_BOTH),
-        'id_card' => str_pad(mt_rand(0, 9999999999), 18, "0", STR_PAD_BOTH)
+        'id_card' => str_pad(mt_rand(100000, 999999), 18, "0", STR_PAD_BOTH)
     ];
 });
