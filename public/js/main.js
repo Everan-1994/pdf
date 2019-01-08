@@ -131,7 +131,7 @@ function convertDataURIToBinary(e) {
 	return o
 }
 function go() {
-	window.open("/app/showPDF.html")
+	window.open("/review")
 }
 function goto(e) {
 	var t = atob(e);

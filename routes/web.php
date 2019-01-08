@@ -41,3 +41,8 @@ Route::group(['middleware' => 'auth:web'], function ($router) {
     $router->post('add_group', 'HomeController@addGroup');
 });
 
+// pdf 预览
+Route::get('review', function () {
+    return view('form.review');
+})->name('review');
+
