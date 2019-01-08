@@ -94,7 +94,7 @@ class FormController extends Controller
         );
         // $pdf->setFooterData([0, 64, 0], [0, 64, 128]);
         // 设置页眉和页脚字体
-        $pdf->setHeaderFont(['tcpdffont', '', 6]);
+        $pdf->setHeaderFont(['stsongstdlight', '', 7]);
         // $pdf->setFooterFont(['helvetica', '', '8']);
         // $pdf->setPrintHeader(false); //设置打印页眉
         // $pdf->setPrintFooter(false); //设置打印页脚
@@ -110,10 +110,10 @@ class FormController extends Controller
         // set default font subsetting mode
         $pdf->setFontSubsetting(true);
         //设置字体 stsongstdlight支持中文
-        $pdf->SetFont('tcpdffont', '', 10, false);
+        $pdf->SetFont('stsongstdlight', '', 12, false);
         // $pdf->SetMargins(30, 0, 30);//左、上、右
         // $pdf->SetAutoPageBreak(TRUE, 15);//下
-//         $pdf->setCellPaddings(1, 1, 1, 0);
+        // $pdf->setCellPaddings(10, 0, 5, 0);
 
         // 数据
         $list = Group::query()

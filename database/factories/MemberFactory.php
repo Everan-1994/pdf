@@ -17,7 +17,7 @@ $factory->define(App\Member::class, function () {
     $faker = Faker\Factory::create('zh_CN');
     return [
         'name' => $faker->name,
-        'number' => '1234567',
-        'id_card' => '450603199900000000'
+        'number' => mt_rand(pow(10, 8 - 1), pow(10, 8) - 1),
+        'id_card' => mt_rand(pow(10, 18 - 1), pow(10, 18) - 1)
     ];
 });
