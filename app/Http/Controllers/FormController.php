@@ -46,7 +46,15 @@ class FormController extends Controller
                     'required',
                     'string',
                     function ($attribute, $value, $fail) {
-                        if ($value !== '39377288fefd40a5a56d5d6317302a5e') {
+                        if ($value !== '39377288fefd40a5a56d5d6317302a510') {
+                            return $fail('验证号码不正确');
+                        }
+
+                        if ($value !== '39377288fefd40a5a56d5d6317302a511') {
+                            return $fail('验证号码不正确');
+                        }
+
+                        if ($value !== '39377288fefd40a5a56d5d6317302a512') {
                             return $fail('验证号码不正确');
                         }
                     },
@@ -76,6 +84,7 @@ class FormController extends Controller
 
     public function getFileWebServerUrl(Request $request, \TCPDF $pdf, BaconQrCodeGenerator $qrCode)
     {
+        $param = $request->input('signNumber', '39377288fefd40a5a56d5d6317302a5e');
         // $pdf = new \TCPDF();
         // 设置文档信息
         // $pdf->SetCreator('懒人开发网');
@@ -87,7 +96,7 @@ class FormController extends Controller
         $pdf->SetHeaderData(
             '',
             0,
-            '您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码39377288fefd40a5a56d5d6317302a5e',
+            '您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
             '',
             [0, 0, 0],
             [0, 0, 0]
@@ -117,14 +126,14 @@ class FormController extends Controller
         // set default font subsetting mode
         // $pdf->setFontSubsetting(true);
         //设置字体 stsongstdlight支持中文
-        $pdf->SetFont('heiti', '', 12, false);
+        $pdf->SetFont('simsun', '', 12, false);
         // $pdf->SetMargins(30, 0, 30);//左、上、右
         // $pdf->SetAutoPageBreak(TRUE, 15);//下
 
         // 数据
         $list = Group::query()
-            ->when($request->filled('group_id'), function ($query) use ($request) {
-                return $query->where('id', $request->input('group_id'));
+            ->when($request->filled('signNumber'), function ($query) use ($request) {
+                return $query->where('name', $request->input('signNumber'));
             })
             ->get();
 
@@ -134,7 +143,7 @@ class FormController extends Controller
             $count_member += count($collect->members);
         }
 
-        $param = $request->input('code', '39377288fefd40a5a56d5d6317302a5e');
+        
 
         $qrCode->format('png')->margin(0)->size(260)->generate(
             $url = env('APP_URL') . '/form?code=' . $param,
@@ -144,10 +153,14 @@ class FormController extends Controller
         $number = 0;
         foreach ($list as $key => $collect) {
             if ($collect->members->isNotEmpty()) {
+                $info = [
+                    'code' => $collect->number,
+                    'date' => $collect->date
+                ];
                 $users = $collect->members->chunk(2);
                 $count = count($collect->members);
                 $date = $collect->publish->toDateString();
-                $page = view('form.pdf3', compact(['users', 'count_member', 'date', 'number']));
+                $page = view('form.pdf3', compact(['users', 'count_member', 'date', 'number', 'info']));
                 $html = response($page)->getContent();
 
                 $number += $count; // 下一个循环开始位置
@@ -165,7 +178,7 @@ class FormController extends Controller
 
                 $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
                 $pdf->Image(public_path() . '/pdf/renshe.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
-                $pdf->Image(public_path() . '/pdf/img_02.png', 163, 12, 42, 42, 'PNG', '', '', false, 100);
+                $pdf->Image(public_path() . '/pdf/img_02.png', 162, 12, 42, 42, 'PNG', '', '', false, 100);
 
                 unset($users);
                 unset($page);

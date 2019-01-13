@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3877596-62a3-4eea-8836-c1b416686c63" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme/default/loading-2.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pdf/regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pdf/renshe.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pdf/renshe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pdf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pdf.worker.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/form/pdf3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/form/pdf3.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tables/group.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tables/group.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tables/member.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tables/member.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,32 +60,67 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="renshe: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="renshe" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="renshe: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="members: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FormController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FormController.php">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="166" column="64" selection-start-line="166" selection-start-column="64" selection-end-line="166" selection-end-column="64" />
+            <state relative-caret-position="454">
+              <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="447">
+              <caret line="208" column="67" lean-forward="true" selection-start-line="208" selection-start-column="67" selection-end-line="208" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="23" column="49" selection-start-line="19" selection-start-column="40" selection-end-line="23" selection-end-column="49" />
               <folding>
-                <element signature="e#40#54#0#PHP" expanded="true" />
-                <element signature="e#6664#9022#0#PHP" />
+                <element signature="e#222#262#0#HTML" expanded="true" />
+                <element signature="e#596#624#0#HTML" expanded="true" />
+                <element signature="e#1781#1807#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdf3.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/form/pdf3.blade.php">
+      <file leaf-file-name="member.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/tables/member.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="83" column="99" selection-start-line="83" selection-start-column="99" selection-end-line="83" selection-end-column="99" />
+            <state relative-caret-position="879">
+              <caret line="267" column="59" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
               <folding>
-                <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="group.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/tables/group.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="290" column="59" selection-start-line="290" selection-start-column="59" selection-end-line="290" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -89,14 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>123.pdf_file</find>
-      <find>image</find>
-      <find>img_0</find>
-      <find>img_02.png</find>
-      <find>writeHTML</find>
-      <find>writeHTMLCell</find>
-      <find>writeHTMLCell(</find>
-      <find>$prev_cell_margin</find>
       <find>write</find>
       <find>container</find>
       <find>setImageScale</find>
@@ -119,6 +160,14 @@
       <find>AnnotationFlag</find>
       <find>'sig'</find>
       <find>getFocus</find>
+      <find>分组名称</find>
+      <find>addGroup</find>
+      <find>group</find>
+      <find>group_form</find>
+      <find>id_card</find>
+      <find>id=&quot;name&quot;</find>
+      <find>cons</find>
+      <find>del-member</find>
     </findStrings>
     <replaceStrings>
       <replace>image</replace>
@@ -157,24 +206,17 @@
         <option value="$PROJECT_DIR$/database/seeds/GroupsTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Member.php" />
-        <option value="$PROJECT_DIR$/app/Group.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/reset.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/tables/member.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/public/js/jquery.js" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/resources/views/tables/group.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2019-01-06.log" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_06_125939_create_groups_table.php" />
         <option value="$PROJECT_DIR$/database/factories/GroupFactory.php" />
         <option value="$PROJECT_DIR$/database/factories/MemberFactory.php" />
         <option value="$PROJECT_DIR$/database/seeds/MembersTableSeeder.php" />
         <option value="$PROJECT_DIR$/public/js/index.js" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/form/index.blade.php" />
         <option value="$PROJECT_DIR$/public/js/pdf.worker.js" />
         <option value="$PROJECT_DIR$/resources/views/form/review.blade.php" />
@@ -182,6 +224,14 @@
         <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FormController.php" />
         <option value="$PROJECT_DIR$/resources/views/form/pdf3.blade.php" />
+        <option value="$PROJECT_DIR$/app/Group.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/tables/member.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tables/group.blade.php" />
+        <option value="$PROJECT_DIR$/storage/logs/laravel-2019-01-13.log" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
       </list>
     </option>
   </component>
@@ -350,31 +400,13 @@
             <path>
               <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
               <item name="renshe" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="factories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renshe" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renshe" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renshe" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
               <item name="renshe" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="pdf" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
@@ -386,20 +418,6 @@
               <item name="renshe" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renshe" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renshe" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="form" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
@@ -420,6 +438,17 @@
               <item name="renshe" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="renshe" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="renshe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="renshe" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -436,19 +465,19 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/pdf" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/resources/views/auth" />
-      <recent name="$PROJECT_DIR$/database/seeds" />
-      <recent name="$PROJECT_DIR$/database/factories" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/pdf" />
       <recent name="$PROJECT_DIR$/storage/app/public" />
       <recent name="$PROJECT_DIR$/resources/views/form" />
       <recent name="$PROJECT_DIR$/public/storage" />
       <recent name="$PROJECT_DIR$/app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/public/pdf" />
+      <recent name="$PROJECT_DIR$/resources/views/auth" />
+      <recent name="$PROJECT_DIR$/database/seeds" />
+      <recent name="$PROJECT_DIR$/database/factories" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -485,12 +514,14 @@
       <workItem from="1546909114430" duration="10402000" />
       <workItem from="1546930489418" duration="202000" />
       <workItem from="1546933604569" duration="855000" />
-      <workItem from="1546942722468" duration="9460000" />
+      <workItem from="1546942722468" duration="9797000" />
+      <workItem from="1547026438846" duration="519000" />
+      <workItem from="1547342651886" duration="15988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109822000" />
+    <option name="totallyTimeSpent" value="126666000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -499,16 +530,16 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2167382" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.1874106" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -554,19 +585,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/public/img_02.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/svg/403.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19997">
@@ -603,31 +621,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="86750" lean-forward="true" selection-start-line="1" selection-start-column="86750" selection-end-line="1" selection-end-column="86750" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="66" column="27" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="66" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -654,27 +651,6 @@
         <state relative-caret-position="-1274" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="47" column="39" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tables/member.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-01-06.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -682,20 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="16" selection-start-column="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://56fa8b29-e502-42f5-967e-b1daa66e8917/schema/renshe/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tables/group.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="210" column="30" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -730,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://56fa8b29-e502-42f5-967e-b1daa66e8917/schema/renshe/table/groups">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/GroupFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -768,27 +723,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://56fa8b29-e502-42f5-967e-b1daa66e8917/schema/renshe/table/members">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/pdf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/pdf.js" />
     <entry file="file://$PROJECT_DIR$/resources/views/form/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -803,26 +738,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/pdf.worker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="5289" column="42" selection-start-line="5289" selection-start-column="42" selection-end-line="5289" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/public/h.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pdf/h1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/index.js" />
+    <entry file="file://$PROJECT_DIR$/public/js/pdf.worker.js" />
+    <entry file="file://$PROJECT_DIR$/storage/app/public/h.png" />
+    <entry file="file://$PROJECT_DIR$/public/pdf/h1.png" />
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-01-08.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -833,24 +752,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/form/pdf3.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://56fa8b29-e502-42f5-967e-b1daa66e8917/schema/renshe/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="1" column="1060" lean-forward="true" selection-start-line="1" selection-start-column="1060" selection-end-line="1" selection-end-column="1060" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://56fa8b29-e502-42f5-967e-b1daa66e8917/schema/renshe/table/groups">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="42" column="25" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FormController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="166" column="64" selection-start-line="166" selection-start-column="64" selection-end-line="166" selection-end-column="64" />
+        <state relative-caret-position="340">
+          <caret line="158" column="18" lean-forward="true" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
-            <element signature="e#6664#9022#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/form/pdf3.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="83" column="99" selection-start-line="83" selection-start-column="99" selection-end-line="83" selection-end-column="99" />
+        <state relative-caret-position="529">
+          <caret line="23" column="49" selection-start-line="19" selection-start-column="40" selection-end-line="23" selection-end-column="49" />
           <folding>
-            <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#222#262#0#HTML" expanded="true" />
+            <element signature="e#596#624#0#HTML" expanded="true" />
+            <element signature="e#1781#1807#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tables/group.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="290" column="59" selection-start-line="290" selection-start-column="59" selection-end-line="290" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tables/member.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="879">
+          <caret line="267" column="59" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#button#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-01-13.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://56fa8b29-e502-42f5-967e-b1daa66e8917/schema/renshe/table/members">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="208" column="67" lean-forward="true" selection-start-line="208" selection-start-column="67" selection-end-line="208" selection-end-column="67" />
         </state>
       </provider>
     </entry>

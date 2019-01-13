@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    protected $fillable = ['name', 'publish'];
+    protected $fillable = ['name', 'publish', 'number', 'date'];
 
     protected $dates = ['publish'];
 

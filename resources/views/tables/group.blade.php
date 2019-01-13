@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGroup">
+                        <button type="button" class="btn btn-primary group" data-id="0">
                             新增分组
                         </button>
                     </div>
@@ -23,9 +23,11 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">组名</th>
-                                    <th scope="col">用户数</th>
+                                    <th scope="col">查询码</th>
+                                    <th scope="col">校验码</th>
+                                    <th scope="col">年月</th>
                                     <th scope="col">打印日期</th>
+                                    <th scope="col">用户数</th>
                                     <th scope="col">操作</th>
                                 </tr>
                                 </thead>
@@ -34,14 +36,21 @@
                                     <tr>
                                         <th scope="row">{{ $group->id }}</th>
                                         <td>{{ $group->name }}</td>
+                                        <td>{{ $group->number }}</td>
+                                        <td>{{ $group->date }}</td>
+                                        <td>{{ $group->publish->toDateString() }}</td>
                                         <td>{{ count($group->members) }} 人</td>
-                                        <td>{{ $group->publish->toDateTimeString() }}</td>
                                         <td>
-                                            <button type="button" class=" edit-group btn btn-sm btn-success"
-                                                    data-id="{{ $group->id }}">编辑
+                                            <button type="button" class="group btn btn-sm btn-success"
+                                                    data-id="{{ $group->id }}"
+                                                    data-name="{{ $group->name }}"
+                                                    data-number="{{ $group->number }}"
+                                                    data-date="{{ $group->date }}"
+                                                    data-publish="{{ $group->publish->toDateString() }}">编辑
                                             </button>
                                             <button style="margin-left: 5px;" type="button"
-                                                    class="btn btn-sm btn-danger">删除
+                                                    class="del-group btn btn-sm btn-danger"
+                                                    data-id="{{ $group->id }}">删除
                                             </button>
                                         </td>
                                     </tr>
@@ -61,28 +70,56 @@
             </div>
         </div>
 
-        <!-- 新增模态框（Modal） -->
-        <div class="modal fade" id="addGroup" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="group" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            新增分组
+                            <span id="title"></span>
                         </h4>
                         <button type="button" class="close" data-dismiss="modal"
                                 aria-hidden="true">×
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="javascript:;">
+                        <form action="javascript:;" id="group_form">
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-3 col-form-label text-md-right">分组名称</label>
+                                <label for="name" class="col-md-3 col-form-label text-md-right">查询码</label>
 
                                 <div class="col-md-8">
-                                    <input id="name" type="text" class="form-control" name="name" required autofocus>
+                                    <input id="name" type="text" class="form-control" name="name" placeholder="请输入查询码"
+                                           required autofocus>
 
                                     <span id="name_error" class="invalid-feedback" role="alert" style="display: none;">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="number" class="col-md-3 col-form-label text-md-right">校验码</label>
+
+                                <div class="col-md-8">
+                                    <input id="number" type="text" class="form-control" name="number"
+                                           placeholder="请输入校验码" required autofocus>
+
+                                    <span id="number_error" class="invalid-feedback" role="alert"
+                                          style="display: none;">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="date" class="col-md-3 col-form-label text-md-right">年月</label>
+
+                                <div class="col-md-8">
+                                    <input id="date" type="text" class="form-control" name="date"
+                                           placeholder="2019 年 1 月" required autofocus>
+
+                                    <span id="date_error" class="invalid-feedback" role="alert" style="display: none;">
                                         <strong></strong>
                                     </span>
                                 </div>
@@ -93,7 +130,7 @@
 
                                 <div class="col-md-8">
                                     <input id="publish" type="text" class="form-control" name="publish" required
-                                           autofocus placeholder="2019-01-01 18:18:18" value="2019-01-01 18:18:18">
+                                           autofocus placeholder="2019-01-01" value="2019-01-01">
 
                                     <span id="publish_error" class="invalid-feedback" role="alert"
                                           style="display: none;">
@@ -101,63 +138,10 @@
                                     </span>
                                 </div>
                             </div>
-
-                            {{--<div class="form-group row">--}}
-                            {{--<label for="name" class="col-md-4 col-form-label text-md-right">姓名</label>--}}
-
-                            {{--<div class="col-md-6">--}}
-                            {{--<input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>--}}
-
-                            {{--@if ($errors->has('name'))--}}
-                            {{--<span class="invalid-feedback" role="alert">--}}
-                            {{--<strong>{{ $errors->first('name') }}</strong>--}}
-                            {{--</span>--}}
-                            {{--@endif--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-
-                            {{--<div class="form-group row">--}}
-                            {{--<label for="id_card" class="col-md-4 col-form-label text-md-right">身份证号</label>--}}
-
-                            {{--<div class="col-md-6">--}}
-                            {{--<input id="id_card" type="text" class="form-control{{ $errors->has('id_card') ? ' is-invalid' : '' }}" name="id_card" value="{{ old('id_card') }}" required autofocus>--}}
-
-                            {{--@if ($errors->has('id_card'))--}}
-                            {{--<span class="invalid-feedback" role="alert">--}}
-                            {{--<strong>{{ $errors->first('id_card') }}</strong>--}}
-                            {{--</span>--}}
-                            {{--@endif--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button id="_addGroup" type="button" class="btn btn-primary">
-                            提 交
-                        </button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-        <!-- 编辑模态框（Modal） -->
-        <div class="modal fade" id="editGroup" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">
-                            编辑用户信息
-                        </h4>
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-hidden="true">×
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        按下 ESC 按钮退出。
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">
+                        <button id="_group" type="button" class="btn btn-primary">
                             提 交
                         </button>
                     </div>
@@ -171,57 +155,141 @@
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script>
     $(document).ready(function () {
-        // 新增
-        $('#_addGroup').click(() => {
+        $('.group').click((e) => {
+            var data = e.currentTarget.dataset
+            if (data.id > 0) {
+                $('#title').text('编辑分组信息')
+                $('#_group').attr('data-id', data.id)
+                $('#name').val(data.name)
+                $('#number').val(data.number)
+                $('#date').val(data.date)
+                $('#publish').val(data.publish)
+                $('#group').modal('show')
+            } else {
+                $('#title').text('新增分组信息')
+                $('#_group').attr('data-id', data.id)
+                $("#group_form input").val("");
+                $('#group').modal('show')
+            }
+        })
+
+        // 新增&编辑 分组
+        $('#_group').click((e) => {
+
             let name = $('#name').val()
+            let number = $('#number').val()
+            let date = $('#date').val()
             let publish = $('#publish').val()
 
             if (name.length === 0) {
                 $('#name').addClass('is-invalid')
                 $('#name_error').show()
-                $('#name_error > strong').text('分组名称不能为空')
+                $('#name_error > strong').text('查询码不能为空')
+                return
+            }
+
+            if (number.length === 0) {
+                $('#number').addClass('is-invalid')
+                $('#number_error').show()
+                $('#number_error > strong').text('校验码不能为空')
+                return
+            }
+
+            if (date.length === 0) {
+                $('#date').addClass('is-invalid')
+                $('#date_error').show()
+                $('#date_error > strong').text('年月不能为空')
+                return
             }
 
             if (publish.length === 0) {
                 $('#publish').addClass('is-invalid')
                 $('#publish_error').show()
                 $('#publish_error > strong').text('打印日期不能为空')
+                return
+            }
+            var id = e.currentTarget.dataset.id
+            if (id > 0) {
+                var url = 'edit_group'
+                var type = 'PUT'
+                var data = {
+                    _method: 'PUT',
+                    id,
+                    name,
+                    number,
+                    date,
+                    publish
+                }
+            } else {
+                var url = 'add_group'
+                var type = 'POST'
+                var data = {
+                    name,
+                    number,
+                    date,
+                    publish
+                }
             }
 
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: 'add_group',
-                type: 'POST',
+                url: url,
+                type: type,
                 dataType: 'json',
-                data: {
-                    name,
-                    publish
-                },
+                data: data,
                 success(response) {
                     if (response.group_id > 0) {
-                        alert('新增成功')
-                        setTimeout(() => {
-                            $('#addGroup').modal('hide')
+                        $('#group').modal('hide')
+                        layer.alert('提交成功', {icon: 1, title: '温馨提示'}, function () {
                             window.location.reload()
-                        }, 1500)
+                        })
                     }
                 },
                 error(error) {
-                    alert('新增失败，请检查数据格式')
+                    console.log(error)
+                    layer.alert('提交失败，请检查数据格式', {icon: 2, title: '温馨提示'})
                 }
             })
 
-            // $('meta[name="csrf-token"]').attr('content')
-
         })
 
-        // 编辑
-        $('.edit-group').click((e) => {
-            $('#editGroup').modal('show')
-            let id = e.currentTarget.dataset.id
-            console.log(id)
+        $('.del-group').click((e) => {
+            var id = e.currentTarget.dataset.id
+            if (id > 0) {
+                layer.confirm('该分组下的全部用户也会删除，确定删除吗？', {
+                    title: '温馨提示',
+                    btn: ['确定删除', '我再想想']
+                }, function () {
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: 'del_group/' + id,
+                        type: 'delete',
+                        dataType: 'json',
+                        data: {
+                            _method: 'delete'
+                        },
+                        success(response) {
+                            if (response.code === 0) {
+                                layer.alert('删除成功', {icon: 1, title: '温馨提示'}, function () {
+                                    window.location.reload()
+                                })
+                            } else {
+                                layer.alert('系统错误，删除失败。', {icon: 2, title: '温馨提示'})
+                            }
+                        },
+                        error(error) {
+                            console.log(error)
+                            layer.alert('系统错误，删除失败。', {icon: 2, title: '温馨提示'})
+                        }
+                    })
+                });
+            } else {
+                layer.msg('缺失参数', {icon: 2, title: '温馨提示'})
+            }
         })
     })
 </script>
