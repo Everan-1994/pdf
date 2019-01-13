@@ -15,8 +15,6 @@ Route::get('/form', function () {
     return view('form.index');
 });
 
-// 获取验证码
-Route::get('/captcha', 'FormController@getImgCaptchaDTO');
 //Auth::routes();
 
 // 首页

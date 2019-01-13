@@ -11,7 +11,12 @@ function osType() {
 	return /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) ? "ios" : /(Android)/i.test(navigator.userAgent) ? "android" : "pc"
 }
 function getCaptcha() {
-    document.getElementById("captchaImg").src = '/captcha/default?' + Math.random();
+    $http('/api/captcha', "get", !1, 3e3, function(e) {
+    	var res = JSON.parse(e)
+        document.getElementById("captchaImg").src = res.img
+        document.getElementById("captchaKey").value = res.key
+    })
+    // document.getElementById("captchaImg").src = '/captcha/default?' + Math.random();
 }
 function setCity(e) {
 	"0" === e ? (document.getElementById("titleID").innerHTML = "缴费报表验证", document.getElementById("topNmae").innerHTML = "电子表单在线验证平台", document.getElementById("inputNo").innerHTML = "目前可提供验证的单据凭证包括：缴费证明") : "1" === e && (document.getElementById("titleID").innerHTML = "人社表单验证", document.getElementById("topNmae").innerHTML = "人社电子表单在线验证平台", document.getElementById("inputNo").innerHTML = "录入验证号码为32位数字与字母的组合，录入时请认真核对")
@@ -22,7 +27,8 @@ function closeDialog() {
 function submintCode() {
 	var e = document.getElementById("verificationValue").value,
 		t = document.getElementById("captchaValue").value,
-		o = "api/verify?signNumber=" + e + "&captcha=" + t,
+		k = document.getElementById("captchaKey").value,
+		o = "api/verify?signNumber=" + e + "&captcha=" + t + "&key=" + k,
 		i = "api/verify/getFileWebServerUrl?signNumber=" + e;
 	"" === e || "" === t ? "" === e && "" != t ? alert("请输入验证号码。") : "" != e && "" === t ? alert("请输入验证码。") : alert("请输入查询信息。") : $http(o, "post", !1, 3e3, function(e) {
 		var t = JSON.parse(e).url;

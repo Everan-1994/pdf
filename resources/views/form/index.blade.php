@@ -116,7 +116,8 @@
             </div>
             <div class="row form_row">
                 <label class="col-md-4 form_row_label">验证码：</label><input id="captchaValue" style="border-right-width: 0" type="text" onfocus="getFocus()" onblur="loseFocus()" placeholder="请输入图片的验证码" class="col-md-5 input_value input_value_hover">
-                <img class="col-md-3 pad0" id="captchaImg" src="{{ captcha_src() }}" onclick="getCaptcha()" style="border: 1px solid #cbcbcb" width="100" height="32">
+                <img class="col-md-3 pad0" id="captchaImg" onclick="getCaptcha()" style="border: 1px solid #cbcbcb" width="100" height="32">
+                <input type="hidden" id="captchaKey">
             </div>
         </div>
         <div class="col-md-3">

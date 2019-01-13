@@ -150,9 +150,9 @@ class HomeController extends Controller
     {
         $params = $this->validate($request, [
             'name' => 'required',
-            'number' => 'required|string',
+            'number' => 'required|string|max:8',
             'group_id' => 'required|int',
-            'id_card' => 'required|string',
+            'id_card' => 'required|string|max20',
         ], [
             'name.required' => '姓名不能为空',
             'number.required' => '个人编号不能为空',
@@ -182,9 +182,9 @@ class HomeController extends Controller
         $params = $this->validate($request, [
             'id' => 'required',
             'name' => 'required',
-            'number' => 'required|string',
+            'number' => 'required|string|max:8',
             'group_id' => 'required|int',
-            'id_card' => 'required|string',
+            'id_card' => 'required|string|max:20',
         ], [
             'name.required' => '姓名不能为空',
             'number.required' => '个人编号不能为空',

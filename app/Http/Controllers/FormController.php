@@ -42,28 +42,34 @@ class FormController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'signNumber' => [
-                    'required',
-                    'string',
-                    function ($attribute, $value, $fail) {
-                        if ($value !== '39377288fefd40a5a56d5d6317302a510') {
-                            return $fail('验证号码不正确');
-                        }
-
-                        if ($value !== '39377288fefd40a5a56d5d6317302a511') {
-                            return $fail('验证号码不正确');
-                        }
-
-                        if ($value !== '39377288fefd40a5a56d5d6317302a512') {
-                            return $fail('验证号码不正确');
-                        }
-                    },
-                ],
-                'captcha'    => ['required', 'captcha'],
+                'signNumber' => 'required|string',
+                'captcha' => 'required',
             ], [
                 'captcha.required' => '验证码不能为空。',
-                'captcha.captcha'  => '验证码不正确。',
             ]);
+
+            $captcha = $request->input('captcha');
+            $key = $request->input('key');
+
+            if (!captcha_api_check($captcha, $key)) {
+                return response()->json([
+                    'title'  => "未找到资源",
+                    'type'   => "http://httpstatus.es/404",
+                    'status' => 400,
+                    'detail' => '验证码不正确',
+                ], 400);
+            }
+
+            $exists = $groups = Group::query()->where('name', $request->input('signNumber'))->exists();
+
+            if (!$exists) {
+                return response()->json([
+                    'title'  => "未找到资源",
+                    'type'   => "http://httpstatus.es/404",
+                    'status' => 400,
+                    'detail' => '查询码不正确',
+                ], 400);
+            }
 
             return response()->json([
                 'url' => true,

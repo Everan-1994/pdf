@@ -19,3 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/verify', 'FormController@verify');
 Route::get('/verify/getFileWebServerUrl', 'FormController@getFileWebServerUrl');
+
+// 获取验证码
+Route::get('/captcha', function() {
+    $res = app('captcha')->create('default', true);
+
+    return $res; // 用JSON格式后输出, 不然有些字符会被转义.
+});
