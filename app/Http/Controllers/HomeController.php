@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Count;
 use App\Group;
 use App\Member;
+use App\Statistic;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -230,6 +232,105 @@ class HomeController extends Controller
             return response()->json(['code' => 0]);
 
         } catch (\Exception $exception) {
+            return response()->json(['code' => 1]);
+        }
+    }
+
+    public function count()
+    {
+        $counts = Count::query()->paginate(10);
+
+        return view('tables.count', compact(['counts']));
+    }
+
+    /**
+     * 新增统计
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function addCount(Request $request)
+    {
+        $params = $this->validate($request, [
+            'name' => 'required',
+            'number' => 'required|string|max:100',
+            'year' => 'required|string',
+            'publish' => 'required|date:"Y-d-m"',
+        ], [
+            'number.max' => '查询码长度过长',
+            'name.required' => '分组名称不能为空',
+            'publish.required' => '打印日期不能为空',
+            'publish.date' => '打印日期格式不正确'
+        ]);
+
+        $params['num'] = $request->input('num', 0);
+
+        $count_id = Count::query()->insertGetId($params);
+
+        return response()->json(compact('count_id'), 201);
+    }
+
+    /**
+     * 更新统计
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function editCount(Request $request)
+    {
+        $params = $this->validate($request, [
+            'id' => 'required|int',
+            'name' => 'required',
+            'number' => 'required|string|max:100',
+            'year' => 'required|string',
+            'publish' => 'required|date:"Y-d-m"',
+        ], [
+            'number.max' => '查询码长度过长',
+            'name.required' => '分组名称不能为空',
+            'publish.required' => '打印日期不能为空',
+            'publish.date' => '打印日期格式不正确'
+        ]);
+
+        Count::query()
+            ->where('id', $params['id'])
+            ->update([
+                'name' => $params['name'],
+                'number' => $params['number'],
+                'year' => $params['year'],
+                'publish' => $params['publish'],
+                'num' => $request->input('num', 0)
+            ]);
+
+        return response()->json(['count_id' => $params['id']]);
+    }
+
+    /**
+     * 删除统计
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function delCount($id)
+    {
+        $validator = \Validator::make(['id' => $id], [
+            'id' => 'required|int',
+        ]);
+
+        try {
+            \DB::beginTransaction();
+
+            Count::query()
+                ->where('id', $id)
+                ->delete();
+
+            Statistic::query()
+                ->where('count_id', $id)
+                ->delete();
+
+            \DB::commit();
+
+            return response()->json(['code' => 0]);
+        } catch (\Exception $exception) {
+            \DB::rollback();
             return response()->json(['code' => 1]);
         }
     }

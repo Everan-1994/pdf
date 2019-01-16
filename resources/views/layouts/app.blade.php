@@ -15,6 +15,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .active {
+            background-color: #eeeeee;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -38,6 +44,9 @@
                                 </li>
                                 <li class="{{ active_class(if_route('home')) }}" >
                                     <a class="nav-link" href="{{ route('home') }}">用户列表</a>
+                                </li>
+                                <li class="{{ active_class(if_route('count')) }}" >
+                                    <a class="nav-link" href="{{ route('count') }}">统计列表</a>
                                 </li>
                             @endguest
                     </ul>

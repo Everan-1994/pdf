@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,43 +10,128 @@
 
     <title>人社表单验证</title>
     <style>
-        .table-class {
-            width: 100%;
+        .table {
+            font-size: 14px;
+            font-weight: bold;
         }
-        .table-class table {
+
+        .table1 {
+            font-size: 9px;
+            padding: 4px;
+        }
+
+        .table2 {
             text-align: center;
-            margin: 0px auto; /* table在页面的居中属性*/
-            width: 100%;
-            height: 100px;
-            border-width: 1px; /*外边框粗细  */
-            border-collapse: collapse; /* 合并边框  border一定要存在且不为零 */
+            font-size: 9px;
+        }
+
+        .table2 td {
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
-<div class="table-class">
-    <table border="1px">
+<!-- 顶部连接 -->
+<div>
+    <br/>
+    <br/>
+    <table class="table">
         <tr>
-            <td width="105">序号</td>
-            <td width="181">个人编号</td>
-            <td width="112">姓名</td>
-            <td width="112">身份证号</td>
-            <td width="105">序号</td>
-            <td width="181">个人编号</td>
-            <td width="112">姓名</td>
-            <td width="112">身份证号</td>
+            <td width="92%" style="text-align: center">
+                南宁市社会保险参保缴费证明（单位专用）
+            </td>
+            <td width="8%"></td>
         </tr>
-        @foreach ($users as $key => $user)
+    </table>
+    <!-- 表格 -->
+    <table class="table1">
+        <tbody>
             <tr>
-                @foreach($user as $j => $v)
-                    <td>{{ $j + 1 }}</td>
-                    <td>{{ $v['code'] }}</td>
-                    <td>{{ $v['userName'] }}</td>
-                    <td>{{ $v['cardId'] }}</td>
-                @endforeach
+                <td width="20%"></td>
+                <td width="33%" style="text-align: right;">(2018年度)</td>
+                <td width="31%"></td>
+                <td width="8%"></td>
+                <td width="8%"></td>
             </tr>
-        @endforeach
+            <tr>
+                <td width="42%" style="text-align: right;">校验码：</td>
+                <td width="18%" style="text-align: right;">2000023072037815</td>
+                <td width="13%"></td>
+                <td width="14%" style="text-align: right;">单位：人</td>
+                <td width="13%"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tr>
+            <td width="8%"></td>
+            <td width="77%">
+                <table class="table2" border="1">
+                    <tr style="line-height: 1.7;">
+                        <th width="11%">单位编号</th>
+                        <th width="30%" colspan="2">20007809</th>
+                        <th width="15%">单位名称</th>
+                        <th width="44%" colspan="3">广西振鸿宇水电建筑有限公司</th>
+                    </tr>
+                    <tr>
+                        <td colspan="7" style="height: 25px; line-height: 25px;">
+                            参保人数及缴费情况
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 20px; line-height: 40px;">月份</td>
+                        <td style="height: 20px; line-height: 40px;">基本养老保险</td>
+                        <td style="height: 20px; line-height: 40px;">基本医疗保险</td>
+                        <td style="height: 20px; line-height: 40px;">失业保险</td>
+                        <td style="height: 20px; line-height: 40px;">工伤保险</td>
+                        <td style="height: 20px; line-height: 40px;">生育保险</td>
+                        <td style="height: 20px; line-height: 13px;">缴费状态（已缴费或欠费或中断）</td>
+                    </tr>
+                    @for($i = 0; $i < 12; $i++)
+                    <tr>
+                        <td style="height: 8px; line-height: 16px;">{{ $i + 1 }}</td>
+                        <td style="height: 8px; line-height: 16px;">2</td>
+                        <td style="height: 8px; line-height: 16px;">3</td>
+                        <td style="height: 8px; line-height: 16px;">4</td>
+                        <td style="height: 8px; line-height: 16px;">5</td>
+                        <td style="height: 8px; line-height: 16px;">6</td>
+                        <td style="height: 8px; line-height: 16px;">实缴</td>
+                    </tr>
+                        @endfor
+                </table>
+            </td>
+            <td width="15%"></td>
+        </tr>
+        <tr>
+            <td width="8%"></td>
+            <td width="77%">
+                <table border="1">
+                    <tr>
+                        <td style="font-size: 9px; height: 50px; line-height: 15px;">
+                            备注：<br/>
+                            1.本证明核查真伪可扫描二维码或通过互联网登录南宁市人力资源和社会保障局网站（
+                            www.nn12333.gov.cn）进行比对。<br/>
+                            2、本证明涉及参保单位及个人信息，因保管不当或向第三方泄露引起的一切后果由参保单位承担。<br/>
+                            3、本证明的信息，仅供参考，不作为待遇计发的最终依据。本证明自打印六个月内有效。<br/>
+                            4、打印参保人员名单详见附件。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="15%"></td>
+        </tr>
+        <tr>
+            <td width="8%"></td>
+            <td width="52%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
+                打印时间：&nbsp;&nbsp;2018-12-12
+            </td>
+            <td width="40%"></td>
+        </tr>
     </table>
 </div>
 </body>
+
 </html>

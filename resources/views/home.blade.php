@@ -13,7 +13,7 @@
                         <form role="form" class="col-md-12 search-form">
                             <div class="form-group row" style="margin-bottom: 0;">
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-group">选择分组</span>
                                         </div>

@@ -21,6 +21,8 @@ Route::get('/form', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 // 分组
 Route::get('/group', 'HomeController@group')->name('group');
+// 统计
+Route::get('/count', 'HomeController@count')->name('count');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -44,6 +46,11 @@ Route::group(['middleware' => 'auth:web'], function ($router) {
     $router->post('add_member', 'HomeController@addMember');
     $router->put('edit_member', 'HomeController@editMember');
     $router->delete('del_member/{id}', 'HomeController@delMember');
+
+    // 统计
+    $router->post('add_count', 'HomeController@addCount');
+    $router->put('edit_count', 'HomeController@editCount');
+    $router->delete('del_count/{id}', 'HomeController@delCount');
 });
 
 // test
