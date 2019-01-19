@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('image/favicon.ico') }}"/>
 
     <title>人社表单验证</title>
     <style>
@@ -17,7 +18,7 @@
 
         .table1 {
             font-size: 9px;
-            padding: 4px;
+            padding: 2px;
         }
 
         .table2 {
@@ -40,28 +41,28 @@
     <br/>
     <table class="table">
         <tr>
-            <td width="92%" style="text-align: center">
+            <td width="97%" style="text-align: center">
                 南宁市社会保险参保缴费证明（单位专用）
             </td>
-            <td width="8%"></td>
+            <td width="3%"></td>
         </tr>
     </table>
     <!-- 表格 -->
     <table class="table1">
         <tbody>
             <tr>
-                <td width="20%"></td>
-                <td width="33%" style="text-align: right;">(2018年度)</td>
+                <td width="19%"></td>
+                <td width="34%" style="text-align: right;">({{ $count->year }}年度)</td>
                 <td width="31%"></td>
                 <td width="8%"></td>
                 <td width="8%"></td>
             </tr>
             <tr>
                 <td width="42%" style="text-align: right;">校验码：</td>
-                <td width="18%" style="text-align: right;">2000023072037815</td>
+                <td width="17%" style="text-align: right;">{{ $count->number }}</td>
                 <td width="13%"></td>
                 <td width="14%" style="text-align: right;">单位：人</td>
-                <td width="13%"></td>
+                <td width="14%"></td>
             </tr>
         </tbody>
     </table>
@@ -82,25 +83,25 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="height: 20px; line-height: 40px;">月份</td>
-                        <td style="height: 20px; line-height: 40px;">基本养老保险</td>
-                        <td style="height: 20px; line-height: 40px;">基本医疗保险</td>
-                        <td style="height: 20px; line-height: 40px;">失业保险</td>
-                        <td style="height: 20px; line-height: 40px;">工伤保险</td>
-                        <td style="height: 20px; line-height: 40px;">生育保险</td>
-                        <td style="height: 20px; line-height: 13px;">缴费状态（已缴费或欠费或中断）</td>
+                        <td style="height: 18px; line-height: 35px;">月份</td>
+                        <td style="height: 18px; line-height: 35px;">基本养老保险</td>
+                        <td style="height: 18px; line-height: 35px;">基本医疗保险</td>
+                        <td style="height: 18px; line-height: 35px;">失业保险</td>
+                        <td style="height: 18px; line-height: 35px;">工伤保险</td>
+                        <td style="height: 18px; line-height: 35px;">生育保险</td>
+                        <td style="height: 18px; line-height: 1.3;">缴费状态（已缴费或欠费或中断）</td>
                     </tr>
-                    @for($i = 0; $i < 12; $i++)
+                    @foreach($count->statistics as $statistic)
                     <tr>
-                        <td style="height: 8px; line-height: 16px;">{{ $i + 1 }}</td>
-                        <td style="height: 8px; line-height: 16px;">2</td>
-                        <td style="height: 8px; line-height: 16px;">3</td>
-                        <td style="height: 8px; line-height: 16px;">4</td>
-                        <td style="height: 8px; line-height: 16px;">5</td>
-                        <td style="height: 8px; line-height: 16px;">6</td>
-                        <td style="height: 8px; line-height: 16px;">实缴</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->month }}</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->pension }}</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->medical }}</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->unemployment }}</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->work_injury }}</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->fertility }}</td>
+                        <td style="height: 8px; line-height: 15px;">{{ $statistic->status }}</td>
                     </tr>
-                        @endfor
+                        @endforeach
                 </table>
             </td>
             <td width="15%"></td>
@@ -110,8 +111,8 @@
             <td width="77%">
                 <table border="1">
                     <tr>
-                        <td style="font-size: 9px; height: 50px; line-height: 15px;">
-                            备注：<br/>
+                        <td style="font-size: 9px; height: 50px; line-height: 14px;">
+                            &nbsp;备注：<br/>
                             1.本证明核查真伪可扫描二维码或通过互联网登录南宁市人力资源和社会保障局网站（
                             www.nn12333.gov.cn）进行比对。<br/>
                             2、本证明涉及参保单位及个人信息，因保管不当或向第三方泄露引起的一切后果由参保单位承担。<br/>
@@ -126,7 +127,7 @@
         <tr>
             <td width="8%"></td>
             <td width="52%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
-                打印时间：&nbsp;&nbsp;2018-12-12
+                打印时间：&nbsp;&nbsp;{{ $count->publish->toDateString() }}
             </td>
             <td width="40%"></td>
         </tr>

@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="{{  asset('css/vendor.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css')  }}">
+    
+    <link rel="shortcut icon" href="{{ asset('image/favicon.ico') }}"/>
 
     <title id="titleID"></title>
 </head>

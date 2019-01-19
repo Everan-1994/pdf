@@ -125,10 +125,6 @@ class FormController extends Controller
         // remove default header/footer
         // $pdf->setPrintHeader(false);
 
-        // 头部字体
-        $pdf->setHeaderFont(['heiti', '', 6]);
-        // 全局字体
-        $pdf->SetFont('simsun', '', 12, false);
         $pdf->setPrintFooter(false);
 
         // set default monospaced font
@@ -145,8 +141,15 @@ class FormController extends Controller
 
         // 判断是 用户列表 还是 统计表
         if (Count::query()->where('name', $request->input('signNumber'))->exists()) {
+            // 头部字体
+            $pdf->setHeaderFont(['stsongstdlight', '', 7]);
+            // 全局字体
+            $pdf->SetFont('stsongstdlight', '', 12, false);
 
-            $page = view('form.pdf2');
+            // 数据
+            $count = Count::query()->where('name', $request->input('signNumber'))->first(); 
+
+            $page = view('form.pdf2', compact('count'));
             $html = response($page)->getContent();
 
             // 加页
@@ -160,8 +163,12 @@ class FormController extends Controller
 
             $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
             $pdf->Image(public_path() . '/pdf/count.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
-            $pdf->Image(public_path() . '/pdf/img_02.png', 162, 10, 42, 42, 'PNG', '', '', false, 100);
+            $pdf->Image(public_path() . '/pdf/img_02.png', 161, 7.5, 42, 42, 'PNG', '', '', false, 100);
         } else {
+            // 头部字体
+            $pdf->setHeaderFont(['heiti', '', 6]);
+            // 全局字体
+            $pdf->SetFont('simsun', '', 12, false);
 
             // 用户数据
             $list = Group::query()

@@ -154,7 +154,7 @@ class HomeController extends Controller
             'name' => 'required',
             'number' => 'required|string|max:8',
             'group_id' => 'required|int',
-            'id_card' => 'required|string|max20',
+            'id_card' => 'required|string|max:20',
         ], [
             'name.required' => '姓名不能为空',
             'number.required' => '个人编号不能为空',
@@ -333,5 +333,59 @@ class HomeController extends Controller
             \DB::rollback();
             return response()->json(['code' => 1]);
         }
+    }
+
+    /*
+     * 查询统计表
+     */
+    public function getStatistics($id)
+    {
+        $list = Statistic::query()
+            ->where('count_id', $id)
+            ->get();
+
+        if ($list->isNotEmpty()) {
+            $data = $list->toArray();
+        } else {
+            $_data = [
+                'pension' => 0,
+                'medical' => 0,
+                'unemployment' => 0,
+                'work_injury' => 0,
+                'fertility' => 0,
+                'status' => '--'
+            ];
+
+            $months = [
+                '01', '02', '03', '04', '05', '06',
+                '07', '08', '09', '10', '11', '12'
+            ];
+
+            foreach ($months as $key => $month) {
+                $data[$key] = $_data;
+                $data[$key]['month'] = $month;
+            }
+        }
+
+        return response()->json($data);
+    }
+
+    public function addStatistics(Request $request)
+    {
+        foreach ($request->input('vals') as $item) {
+            Statistic::query()->updateOrCreate([
+                'count_id' => $request->input('count_id'),
+                'month' => $item[0]
+            ], [
+                'pension' => $item[1] ?: 0,
+                'medical' => $item[2] ?: 0,
+                'unemployment' => $item[3] ?: 0,
+                'work_injury' => $item[4] ?: 0,
+                'fertility' => $item[5] ?: 0,
+                'status' => $item[6] ?: 0
+            ]);
+        }
+
+        return response()->json(['code' => 0]);
     }
 }

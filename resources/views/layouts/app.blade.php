@@ -15,6 +15,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ asset('image/favicon.ico') }}"/>
+    
     <style>
         .active {
             background-color: #eeeeee;

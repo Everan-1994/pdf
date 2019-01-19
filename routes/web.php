@@ -51,6 +51,10 @@ Route::group(['middleware' => 'auth:web'], function ($router) {
     $router->post('add_count', 'HomeController@addCount');
     $router->put('edit_count', 'HomeController@editCount');
     $router->delete('del_count/{id}', 'HomeController@delCount');
+
+    // 月份数据
+    $router->get('count_data/{id}', 'HomeController@getStatistics');
+    $router->post('count_data', 'HomeController@addStatistics');
 });
 
 // test

@@ -28,7 +28,7 @@
                                     <th scope="col">年份</th>
                                     <th scope="col">打印日期</th>
                                     <th scope="col">总人数</th>
-                                    <th scope="col">操作</th>
+                                    <th scope="col" style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -40,8 +40,12 @@
                                         <td>{{ $count->year }}</td>
                                         <td>{{ $count->publish->toDateString() }}</td>
                                         <td>{{ $count->num }}</td>
-                                        <td>
-                                            <button type="button" class="count btn btn-sm btn-success"
+                                        <td style="text-align: center;">
+                                            <button type="button"
+                                                    class="count-data btn btn-sm btn-primary"
+                                                    data-id="{{ $count->id }}">统计表
+                                            </button>
+                                            <button style="margin-left: 5px;" type="button" class="count btn btn-sm btn-success"
                                                     data-id="{{ $count->id }}"
                                                     data-name="{{ $count->name }}"
                                                     data-number="{{ $count->number }}"
@@ -164,6 +168,45 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
+        <!-- 模态框（data） -->
+        <div class="modal fade" id="count_data" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            参保人数及缴费情况
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">×
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table" id="table_data" style="text-align: center;">
+                            <thead>
+                            <tr>
+                                <th scope="col">月份</th>
+                                <th scope="col">养老保险</th>
+                                <th scope="col">医疗保险</th>
+                                <th scope="col">失业保险</th>
+                                <th scope="col">工伤保险</th>
+                                <th scope="col">生育保险</th>
+                                <th scope="col">缴费状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="_count_data" type="button" class="btn btn-primary" data-count_id="0">
+                            保 存
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
     </div>
 @endsection
 
@@ -196,7 +239,7 @@
             let number = $('#number').val()
             let year = $('#year').val()
             let publish = $('#publish').val()
-            let num = $('#num').val()
+            let num = $('#num').val() || 0
 
             if (name.length === 0) {
                 $('#name').addClass('is-invalid')
@@ -310,6 +353,97 @@
             } else {
                 layer.msg('缺失参数', {icon: 2, title: '温馨提示'})
             }
+        })
+
+        $('.count-data').click((e) => {
+            var id = e.currentTarget.dataset.id
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'count_data/' + id,
+                type: 'get',
+                dataType: 'json',
+                data: [],
+                success(response) {
+                    var html_data = ''
+                    response.forEach((item, i) => {
+                        html_data += `<tr>
+                                    <th scope="row">
+                                        <input disabled type="text" style="text-align:center;" class="input_${i} form-control" name="month" value="${item.month}">
+                                    </th>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="pension" value="${item.pension}">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="medical" value="${item.medical}">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="unemployment" value="${item.unemployment}">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="work_injury" value="${item.work_injury}">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="fertility" value="${item.fertility}">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="status" value="${item.status}">
+                                    </td>
+                                </tr>`
+                    })
+                    $('#table_data > tbody').append(html_data);
+                },
+                error(error) {
+                    console.log(error)
+                    layer.alert('获取数据失败', {icon: 2, title: '温馨提示'})
+                }
+            })
+
+            $('#_count_data').attr('data-count_id', id)
+            $('#count_data').modal('show')
+        })
+
+        // 监听 modal 关闭
+        $('#count_data').on('hide.bs.modal', function () {
+            $('#_count_data').attr('data-count_id', 0)
+            $('#table_data > tbody').empty();
+        });
+
+        // 格式化数据
+        $('#_count_data').click((e) => {
+            var count_id = e.currentTarget.dataset.count_id
+            var vals = []
+
+            for (let i = 0; i < 12; i++) {
+                let arr = []
+                $('.input_' + i).each((e, item) => {
+                    arr.push($(item).val() || 0)
+                })
+                vals.push(arr)
+            }
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'count_data',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    count_id,
+                    vals
+                },
+                success(response) {
+                    layer.alert('保存成功', {icon: 1, title: '温馨提示'})
+                },
+                error(error) {
+                    console.log(error)
+                    layer.alert('保存失败', {icon: 2, title: '温馨提示'})
+                }
+            })
+
         })
     })
 </script>
