@@ -41,10 +41,10 @@
     <br/>
     <table class="table">
         <tr>
-            <td width="97%" style="text-align: center">
-                南宁市社会保险参保缴费证明（单位专用）
+            <td width="98%" style="text-align: center">
+                南宁市社会保险参保缴费证明（ 单位专用 ）
             </td>
-            <td width="3%"></td>
+            <td width="2%"></td>
         </tr>
     </table>
     <!-- 表格 -->
@@ -52,30 +52,30 @@
         <tbody>
             <tr>
                 <td width="19%"></td>
-                <td width="34%" style="text-align: right;">({{ $count->year }}年度)</td>
+                <td width="36%" style="text-align: right;">（ {{ $count->year }}年度 ）</td>
                 <td width="31%"></td>
                 <td width="8%"></td>
-                <td width="8%"></td>
+                <td width="6%"></td>
             </tr>
             <tr>
                 <td width="42%" style="text-align: right;">校验码：</td>
                 <td width="17%" style="text-align: right;">{{ $count->number }}</td>
                 <td width="13%"></td>
-                <td width="14%" style="text-align: right;">单位：人</td>
-                <td width="14%"></td>
+                <td width="16%" style="text-align: right;">单位：人</td>
+                <td width="12%"></td>
             </tr>
         </tbody>
     </table>
     <table>
         <tr>
             <td width="8%"></td>
-            <td width="77%">
+            <td width="79%">
                 <table class="table2" border="1">
                     <tr style="line-height: 1.7;">
                         <th width="11%">单位编号</th>
                         <th width="30%" colspan="2">20007809</th>
                         <th width="15%">单位名称</th>
-                        <th width="44%" colspan="3">广西振鸿宇水电建筑有限公司</th>
+                        <th width="44%" colspan="3">广西振鸿宇水电建筑有限责任公司</th>
                     </tr>
                     <tr>
                         <td colspan="7" style="height: 25px; line-height: 25px;">
@@ -104,11 +104,11 @@
                         @endforeach
                 </table>
             </td>
-            <td width="15%"></td>
+            <td width="13%"></td>
         </tr>
         <tr>
             <td width="8%"></td>
-            <td width="77%">
+            <td width="79%">
                 <table border="1">
                     <tr>
                         <td style="font-size: 9px; height: 50px; line-height: 14px;">
@@ -122,14 +122,14 @@
                     </tr>
                 </table>
             </td>
-            <td width="15%"></td>
+            <td width="13%"></td>
         </tr>
         <tr>
             <td width="8%"></td>
-            <td width="52%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
+            <td width="56%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
                 打印时间：&nbsp;&nbsp;{{ $count->publish->toDateString() }}
             </td>
-            <td width="40%"></td>
+            <td width="36%"></td>
         </tr>
     </table>
 </div>

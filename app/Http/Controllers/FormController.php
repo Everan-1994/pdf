@@ -142,7 +142,7 @@ class FormController extends Controller
         // 判断是 用户列表 还是 统计表
         if (Count::query()->where('name', $request->input('signNumber'))->exists()) {
             // 头部字体
-            $pdf->setHeaderFont(['stsongstdlight', '', 7]);
+            $pdf->setHeaderFont(['heiti', '', 6]);
             // 全局字体
             $pdf->SetFont('stsongstdlight', '', 12, false);
 
@@ -156,14 +156,14 @@ class FormController extends Controller
             $pdf->AddPage();
             $pdf->writeHTML($html);
 
-            $qrCode->format('png')->margin(0)->size(260)->generate(
+            $qrCode->format('png')->margin(0)->size(280)->generate(
                 $url = env('APP_URL') . '/form?code=' . $param,
                 '../public/pdf/count.png'
             );
 
             $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
             $pdf->Image(public_path() . '/pdf/count.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
-            $pdf->Image(public_path() . '/pdf/img_02.png', 161, 7.5, 42, 42, 'PNG', '', '', false, 100);
+            $pdf->Image(public_path() . '/pdf/img_02.png', 165, 7.5, 42, 42, 'PNG', '', '', false, 100);
         } else {
             // 头部字体
             $pdf->setHeaderFont(['heiti', '', 6]);
@@ -183,7 +183,7 @@ class FormController extends Controller
                 $count_member += count($collect->members);
             }
 
-            $qrCode->format('png')->margin(0)->size(260)->generate(
+            $qrCode->format('png')->margin(0)->size(280)->generate(
                 $url = env('APP_URL') . '/form?code=' . $param,
                 '../public/pdf/renshe.png'
             );
