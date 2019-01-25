@@ -41,10 +41,10 @@
     <br/>
     <table class="table">
         <tr>
-            <td width="98%" style="text-align: center">
-                南宁市社会保险参保缴费证明（ 单位专用 ）
+            <td width="94%" style="text-align: center">
+                南宁市社会保险参保缴费证明（单位专用）
             </td>
-            <td width="2%"></td>
+            <td width="6%"></td>
         </tr>
     </table>
     <!-- 表格 -->
@@ -52,15 +52,15 @@
         <tbody>
             <tr>
                 <td width="19%"></td>
-                <td width="36%" style="text-align: right;">（ {{ $count->year }}年度 ）</td>
-                <td width="31%"></td>
+                <td width="34%" style="text-align: right;">({{ $count->year }}年度)</td>
+                <td width="33%"></td>
                 <td width="8%"></td>
                 <td width="6%"></td>
             </tr>
             <tr>
                 <td width="42%" style="text-align: right;">校验码：</td>
-                <td width="17%" style="text-align: right;">{{ $count->number }}</td>
-                <td width="13%"></td>
+                <td width="18%" style="text-align: right;">{{ $count->number }}</td>
+                <td width="12%"></td>
                 <td width="16%" style="text-align: right;">单位：人</td>
                 <td width="12%"></td>
             </tr>
@@ -126,10 +126,10 @@
         </tr>
         <tr>
             <td width="8%"></td>
-            <td width="56%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
+            <td width="53%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
                 打印时间：&nbsp;&nbsp;{{ $count->publish->toDateString() }}
             </td>
-            <td width="36%"></td>
+            <td width="37%"></td>
         </tr>
     </table>
 </div>

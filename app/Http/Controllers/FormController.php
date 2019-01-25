@@ -144,7 +144,7 @@ class FormController extends Controller
             // 头部字体
             $pdf->setHeaderFont(['heiti', '', 6]);
             // 全局字体
-            $pdf->SetFont('stsongstdlight', '', 12, false);
+            $pdf->SetFont('simsun', '', 12, false);
 
             // 数据
             $count = Count::query()->where('name', $request->input('signNumber'))->first(); 
