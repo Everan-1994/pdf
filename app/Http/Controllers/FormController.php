@@ -100,15 +100,7 @@ class FormController extends Controller
         $pdf->SetTitle('getFileWebServerUrl');
         // $pdf->SetSubject('getFileWebServerUrl2');
         // $pdf->SetKeywords('TCPDF, PDF, PHP');
-        // 设置页眉和页脚信息
-        $pdf->SetHeaderData(
-            '',
-            0,
-            '您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
-            '',
-            [0, 0, 0],
-            [0, 0, 0]
-        );
+
         // $pdf->setFooterData([0, 64, 0], [0, 64, 128]);
         // 设置页眉和页脚字体
 
@@ -141,6 +133,15 @@ class FormController extends Controller
 
         // 判断是 用户列表 还是 统计表
         if (Count::query()->where('name', $request->input('signNumber'))->exists()) {
+            // 设置页眉和页脚信息
+            $pdf->SetHeaderData(
+                '',
+                0,
+                '您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
+                '',
+                [0, 0, 0],
+                [0, 0, 0]
+            );
             // 头部字体
             $pdf->setHeaderFont(['heiti', '', 6]);
             // 全局字体
@@ -165,6 +166,15 @@ class FormController extends Controller
             $pdf->Image(public_path() . '/pdf/count.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
             $pdf->Image(public_path() . '/pdf/img_02.png', 165, 7.5, 42, 42, 'PNG', '', '', false, 100);
         } else {
+            // 设置页眉和页脚信息
+            $pdf->SetHeaderData(
+                '',
+                0,
+                '       您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
+                '',
+                [0, 0, 0],
+                [0, 0, 0]
+            );
             // 头部字体
             $pdf->setHeaderFont(['heiti', '', 6]);
             // 全局字体
@@ -205,13 +215,13 @@ class FormController extends Controller
 
                     // 加页
                     $pdf->AddPage();
-                    $pdf->writeHTML($html);
+                    $pdf->writeHTML($html, true, false, false, true, '');
 
                     // 生成二维码
 
                     $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
-                    $pdf->Image(public_path() . '/pdf/renshe.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
-                    $pdf->Image(public_path() . '/pdf/img_02.png', 162, 12, 42, 42, 'PNG', '', '', false, 100);
+                    $pdf->Image(public_path() . '/pdf/renshe.png', 15, 5, 22, 22, 'PNG', '', '', false, 100);
+                    $pdf->Image(public_path() . '/pdf/img_02.png', 162, 8, 42, 42, 'PNG', '', '', false, 100);
 
                     unset($users);
                     unset($page);
