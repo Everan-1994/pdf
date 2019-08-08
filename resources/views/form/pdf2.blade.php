@@ -27,9 +27,9 @@
         }
 
         .table2 td {
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
+            /*height: 18px;*/
+            /*text-align: center;*/
+            /*vertical-align: middle;*/
         }
     </style>
 </head>
@@ -41,74 +41,87 @@
     <br/>
     <table class="table">
         <tr>
-            <td width="94%" style="text-align: center">
+            <td width="92%" style="text-align: center">
                 南宁市社会保险参保缴费证明（单位专用）
             </td>
-            <td width="6%"></td>
+            <td width="8%"></td>
         </tr>
     </table>
     <!-- 表格 -->
     <table class="table1">
         <tbody>
-            <tr>
-                <td width="19%"></td>
-                <td width="34%" style="text-align: right;">({{ $count->year }}年度)</td>
-                <td width="33%"></td>
-                <td width="8%"></td>
-                <td width="6%"></td>
-            </tr>
-            <tr>
-                <td width="42%" style="text-align: right;">校验码：</td>
-                <td width="18%" style="text-align: right;">{{ $count->number }}</td>
-                <td width="12%"></td>
-                <td width="16%" style="text-align: right;">单位：人</td>
-                <td width="12%"></td>
-            </tr>
+        <tr>
+            <td width="19%"></td>
+            <td width="32%" style="text-align: right;">({{ $count->year }}年度)</td>
+            <td width="35%"></td>
+            <td width="8%"></td>
+            <td width="6%"></td>
+        </tr>
+        <tr>
+            {{--<td width="42%" style="text-align: right;">校验码：</td>--}}
+            {{--<td width="18%" style="text-align: right;">{{ $count->number }}</td>--}}
+            <td width="42%" style="text-align: right;"></td>
+            <td width="18%" style="text-align: right;"></td>
+            <td width="11%"></td>
+            <td width="15.5%" style="text-align: right;">单位：人</td>
+            <td width="13.5%"></td>
+        </tr>
         </tbody>
     </table>
     <table>
         <tr>
-            <td width="8%"></td>
-            <td width="79%">
-                <table class="table2" border="1">
+            <td width="9%"></td>
+            <td width="77%">
+                <table class="table2" border="1" cellpadding="1">
                     <tr style="line-height: 1.7;">
                         <th width="11%">单位编号</th>
-                        <th width="30%" colspan="2">20007809</th>
-                        <th width="15%">单位名称</th>
-                        <th width="44%" colspan="3">广西振鸿宇水电建筑有限责任公司</th>
+                        <th width="39%" colspan="3">20007809</th>
+                        <th width="12%">单位名称</th>
+                        <th width="38%" colspan="3">广西振鸿宇水电建筑有限责任公司</th>
                     </tr>
                     <tr>
-                        <td colspan="7" style="height: 25px; line-height: 25px;">
+                        <td colspan="8" style="height: 25px; line-height: 25px;">
                             参保人数及缴费情况
                         </td>
                     </tr>
                     <tr>
-                        <td style="height: 18px; line-height: 35px;">月份</td>
-                        <td style="height: 18px; line-height: 35px;">基本养老保险</td>
-                        <td style="height: 18px; line-height: 35px;">基本医疗保险</td>
-                        <td style="height: 18px; line-height: 35px;">失业保险</td>
-                        <td style="height: 18px; line-height: 35px;">工伤保险</td>
-                        <td style="height: 18px; line-height: 35px;">生育保险</td>
-                        <td style="height: 18px; line-height: 1.3;">缴费状态（已缴费或欠费或中断）</td>
+                        <td style="line-height: 35px;">月份</td>
+                        <td>
+                            <p style="line-height: 1.5mm;">基本养老保</p>
+                            <p style="line-height: -0.5;">险</p>
+                        </td>
+                        <td>
+                            <p style="line-height: 1.5mm;">机关养老保</p>
+                            <p style="line-height: -0.5;">险</p>
+                        </td>
+                        <td>
+                            <p style="line-height: 1.5mm;">基本医疗保</p>
+                            <p style="line-height: -0.5;">险</p>
+                        </td>
+                        <td style="line-height: 35px;">失业保险</td>
+                        <td style="line-height: 35px;">工伤保险</td>
+                        <td style="line-height: 35px;">生育保险</td>
+                        <td>缴费状态（已缴费或欠费或中断）</td>
                     </tr>
                     @foreach($count->statistics as $statistic)
-                    <tr>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->month }}</td>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->pension }}</td>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->medical }}</td>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->unemployment }}</td>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->work_injury }}</td>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->fertility }}</td>
-                        <td style="height: 8px; line-height: 15px;">{{ $statistic->status }}</td>
-                    </tr>
-                        @endforeach
+                        <tr>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->month }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->pension }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->organ }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->medical }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->unemployment }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->work_injury }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->fertility }}</td>
+                            <td style="height: 8px; line-height: 15px;">{{ $statistic->status }}</td>
+                        </tr>
+                    @endforeach
                 </table>
             </td>
-            <td width="13%"></td>
+            <td width="14%"></td>
         </tr>
         <tr>
-            <td width="8%"></td>
-            <td width="79%">
+            <td width="9%"></td>
+            <td width="77%">
                 <table border="1">
                     <tr>
                         <td style="font-size: 9px; height: 50px; line-height: 14px;">
@@ -122,14 +135,14 @@
                     </tr>
                 </table>
             </td>
-            <td width="13%"></td>
+            <td width="14%"></td>
         </tr>
         <tr>
-            <td width="8%"></td>
-            <td width="53%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
+            <td width="9%"></td>
+            <td width="58%" style="text-align: right; font-size: 9px; height: 15px; line-height: 15px;">
                 打印时间：&nbsp;&nbsp;{{ $count->publish->toDateString() }}
             </td>
-            <td width="37%"></td>
+            <td width="33%"></td>
         </tr>
     </table>
 </div>

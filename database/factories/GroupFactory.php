@@ -16,6 +16,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Group::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'number' => $faker->randomNumber(),
+        'date' => \Carbon\Carbon::now()->format('Y年m月'),
         'publish' => \Carbon\Carbon::now()->toDateString()
     ];
 });

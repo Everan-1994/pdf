@@ -164,8 +164,8 @@ class HomeController extends Controller
 
         $builder = Member::query();
 
-        if ($builder->where('group_id', $params['group_id'])->count() == 48) {
-            return response()->json(['msg' => '该分组已满48人'], 400);
+        if ($builder->where('group_id', $params['group_id'])->count() == 74) {
+            return response()->json(['msg' => '该分组已满74人'], 400);
         }
 
         $member_id = $builder->insertGetId($params);
@@ -204,8 +204,8 @@ class HomeController extends Controller
             $data['group_id'] = $params['group_id'];
         }
 
-        if (Member::query()->where('group_id', $params['group_id'])->count() == 48) {
-            return response()->json(['msg' => '该分组已满48人'], 400);
+        if (Member::query()->where('group_id', $params['group_id'])->count() == 74) {
+            return response()->json(['msg' => '该分组已满74人'], 400);
         }
 
         Member::query()->where('id', $params['id'])->update($data);
@@ -349,6 +349,7 @@ class HomeController extends Controller
         } else {
             $_data = [
                 'pension' => 0,
+                'organ' => 0,
                 'medical' => 0,
                 'unemployment' => 0,
                 'work_injury' => 0,
@@ -378,11 +379,12 @@ class HomeController extends Controller
                 'month' => $item[0]
             ], [
                 'pension' => $item[1] ?: 0,
-                'medical' => $item[2] ?: 0,
-                'unemployment' => $item[3] ?: 0,
-                'work_injury' => $item[4] ?: 0,
-                'fertility' => $item[5] ?: 0,
-                'status' => $item[6] ?: 0
+                'organ' => $item[2] ?: 0,
+                'medical' => $item[3] ?: 0,
+                'unemployment' => $item[4] ?: 0,
+                'work_injury' => $item[5] ?: 0,
+                'fertility' => $item[6] ?: 0,
+                'status' => $item[7] ?: 0
             ]);
         }
 

@@ -42,38 +42,38 @@
     <br/>
     <table class="table">
         <tr>
-            <td width="13%"></td>
+            <td width="11%"></td>
             <td width="75%" style="text-align: center; line-height: 1.7;">
                 附件：南宁市社会保险参保缴费证明
             </td>
-            <td width="12%"></td>
+            <td width="14%"></td>
         </tr>
         <tr>
-            <td width="13%"></td>
+            <td width="11%"></td>
             <td width="75%" style="text-align: center; line-height: 1.7;">
                 正常应缴人员名单（单位专用）
             </td>
-            <td width="12%"></td>
+            <td width="14%"></td>
         </tr>
     </table>
     <!-- 表格 -->
     <table class="table1">
         <tbody>
         <tr>
-            <td width="15%"></td>
+            <td width="13%"></td>
             <td width="40%">单位名称： 广西振鸿宇水电建筑有限责任公司</td>
-            <td width="35%">校验码：{{ $info['code'] }}</td>
+            <td width="47%">校验码：{{ $info['code'] }}</td>
         </tr>
         <tr>
-            <td width="15%"></td>
+            <td width="13%"></td>
             <td width="40%">{{ $info['date'] }}</td>
-            <td width="45%">参保人数（共 {{ $count_member }} 人，其中正常应缴 {{ $count_member }} 人）</td>
+            <td width="47%">参保人数（共 {{ $count_member }} 人，其中正常应缴 {{ $count_member }} 人）</td>
         </tr>
         </tbody>
     </table>
     <table>
         <tr>
-            <td width="12%"></td>
+            <td width="10%"></td>
             <td width="77%">
                 <table class="table2" border="1">
                     <tr style="line-height: 1.7;">
@@ -87,7 +87,7 @@
                         <th width="21%">身份证号</th>
                     </tr>
                     @foreach ($users as $key => $user)
-                        <tr style="line-height: 1.9;">
+                        <tr style="line-height: 1.6;">
                             @foreach($user as $j => $v)
                                 <th>{{ $number + $j + 1 }}</th>
                                 <th>{{ $v['number'] }}</th>
@@ -105,7 +105,7 @@
 
                 </table>
             </td>
-            <td width="11%"></td>
+            <td width="13%"></td>
         </tr>
         <tr>
             <td></td>

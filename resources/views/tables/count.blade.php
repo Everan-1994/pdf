@@ -185,8 +185,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">月份</th>
-                                <th scope="col">养老保险</th>
-                                <th scope="col">医疗保险</th>
+                                <th scope="col">基本养老</th>
+                                <th scope="col">机关养老</th>
+                                <th scope="col">基本医疗</th>
                                 <th scope="col">失业保险</th>
                                 <th scope="col">工伤保险</th>
                                 <th scope="col">生育保险</th>
@@ -375,6 +376,9 @@
                                     </th>
                                     <td>
                                         <input type="text" style="text-align:center;" class="input_${i} form-control" name="pension" value="${item.pension}">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="text-align:center;" class="input_${i} form-control" name="organ" value="${item.organ}">
                                     </td>
                                     <td>
                                         <input type="text" style="text-align:center;" class="input_${i} form-control" name="medical" value="${item.medical}">

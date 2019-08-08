@@ -100,6 +100,15 @@ class FormController extends Controller
         $pdf->SetTitle('getFileWebServerUrl');
         // $pdf->SetSubject('getFileWebServerUrl2');
         // $pdf->SetKeywords('TCPDF, PDF, PHP');
+        // 设置页眉和页脚信息
+        $pdf->SetHeaderData(
+            '',
+            0,
+            ' 您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
+            '',
+            [0, 0, 0],
+            [0, 0, 0]
+        );
 
         // $pdf->setFooterData([0, 64, 0], [0, 64, 128]);
         // 设置页眉和页脚字体
@@ -133,15 +142,6 @@ class FormController extends Controller
 
         // 判断是 用户列表 还是 统计表
         if (Count::query()->where('name', $request->input('signNumber'))->exists()) {
-            // 设置页眉和页脚信息
-            $pdf->SetHeaderData(
-                '',
-                0,
-                '您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
-                '',
-                [0, 0, 0],
-                [0, 0, 0]
-            );
             // 头部字体
             $pdf->setHeaderFont(['heiti', '', 6]);
             // 全局字体
@@ -163,20 +163,11 @@ class FormController extends Controller
             );
 
             $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
-            $pdf->Image(public_path() . '/pdf/count.png', 9, 5, 22, 22, 'PNG', '', '', false, 100);
+            $pdf->Image(public_path() . '/pdf/count.png', 10, 5, 22, 22, 'PNG', '', '', false, 100);
             $pdf->Image(public_path() . '/pdf/img_02.png', 165, 7.5, 42, 42, 'PNG', '', '', false, 100);
         } else {
-            // 设置页眉和页脚信息
-            $pdf->SetHeaderData(
-                '',
-                0,
-                '       您可以使用手机扫描二维码或访问人社局网站https://ggfw.nn12333.com:8081/form/验证此单据真伪，验证号码' . $param,
-                '',
-                [0, 0, 0],
-                [0, 0, 0]
-            );
             // 头部字体
-            $pdf->setHeaderFont(['heiti', '', 6]);
+            $pdf->setHeaderFont(['stsongstdlight', '', 7]);
             // 全局字体
             $pdf->SetFont('simsun', '', 12, false);
 
@@ -205,7 +196,7 @@ class FormController extends Controller
                         'code' => $collect->number,
                         'date' => $collect->date,
                     ];
-                    $users = $collect->members->chunk(2);
+                    $users = $collect->members->chunk(2); // 两个一行
                     $count = count($collect->members);
                     $date = $collect->publish->toDateString();
                     $page = view('form.pdf3', compact(['users', 'count_member', 'date', 'number', 'info']));
@@ -216,12 +207,11 @@ class FormController extends Controller
                     // 加页
                     $pdf->AddPage();
                     $pdf->writeHTML($html, true, false, false, true, '');
-
                     // 生成二维码
 
                     $pdf->Image(public_path() . '/pdf/h.jpg', 10, 5, 200, 10, 'JPG', '', '', false, 100);
-                    $pdf->Image(public_path() . '/pdf/renshe.png', 15, 5, 22, 22, 'PNG', '', '', false, 100);
-                    $pdf->Image(public_path() . '/pdf/img_02.png', 162, 8, 42, 42, 'PNG', '', '', false, 100);
+                    $pdf->Image(public_path() . '/pdf/renshe.png', 10, 5, 22, 22, 'PNG', '', '', false, 100);
+                    $pdf->Image(public_path() . '/pdf/img_02.png', 164, 8, 42, 42, 'PNG', '', '', false, 100);
 
                     unset($users);
                     unset($page);
